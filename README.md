@@ -7,5 +7,4 @@ Esse trabalho/código foi feito inicialmente por três alunos (Keiya, Jerônimo 
 Com isso nós decidimos adaptar o jogo usando como base o código antigo que pode ser encontrado no link abaixo:
 
 https://github.com/drumondpe/Projeto-DesSoft
-https://github.com/drumondpe/Projeto-DesSoft
-https://github.com/drumondpe/Projeto-DesSoft
+
