@@ -10,16 +10,18 @@ CONFIGURACOES = None
 CORES = None
 TEXTOS = None
 TELA = None
-PLAYER = None
+PLAYER1 = None
+PLAYER2 = None
 
-def init(config, tela, player):
+def init(config, tela, player1, player2):
     'inicializa as variáveis das funções'
 
-    global CONFIGURACOES, CORES, TEXTOS, TELA, PLAYER
+    global CONFIGURACOES, CORES, TEXTOS, TELA, PLAYER1, PLAYER2
 
     CONFIGURACOES = config    
     TELA = tela    
-    PLAYER = player
+    PLAYER1 = player1
+	PLAYER2 = player2
 
     TEXTOS = CONFIGURACOES.textos
     CORES = CONFIGURACOES.cores
@@ -80,13 +82,13 @@ def checa_eventos(tela_inicial, game_over, rodando):
 				#	PACMAN.indo_para_cima = True
 
 				if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-					PLAYER.indo_para_esquerda = True
+					PLAYER1.indo_para_esquerda = True
 
 				elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-					PLAYER.indo_para_direita = True
+					PLAYER1.indo_para_direita = True
 
                 elif event.key == pygame.K_SPACE:
-                    PLAYER.pulando = True
+                    PLAYER1.pulando = True
 
 
 			if event.type == pygame.KEYUP:
@@ -98,13 +100,13 @@ def checa_eventos(tela_inicial, game_over, rodando):
 				#	PACMAN.indo_para_cima = False
 
 				if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-					PLAYER.indo_para_esquerda = False
+					PLAYER1.indo_para_esquerda = False
 
 				elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-					PLAYER.indo_para_direita = False
+					PLAYER1.indo_para_direita = False
 
                 elif event.key == pygame.K_SPACE:
-                    PLAYER.pulando = False
+                    PLAYER1.pulando = False
 
 	return tela_inicial, rodando
             

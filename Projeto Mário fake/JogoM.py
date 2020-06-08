@@ -39,8 +39,8 @@ def rodar():
 	GAME_OVER = False
 
     # inicializando objetos
-    PLAYER = Player(TELA, CONFIGURACOES)
-    funcoes.init(CONFIG, TELA, PLAYER)
+    PLAYER1 = Player(TELA, CONFIGURACOES)
+    funcoes.init(CONFIG, TELA, PLAYER1)
     
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()
@@ -58,9 +58,9 @@ def rodar():
             TELA.fill(CORES.fundo)
             TELA.blit(MAPA, (0, 0))
 
-            PLAYER.update() # atualiza posição do player
+            PLAYER1.update() # atualiza posição do player
 
-            TELA.blit(PLAYER.image, PLAYER.rect)
+            TELA.blit(PLAYER1.image, PLAYER.rect)
 
         elif GAME_OVER:
             pass
