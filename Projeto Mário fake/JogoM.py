@@ -7,10 +7,10 @@
 import pygame
 import random
 
-import Funções-M as funcoes
+import FunçõesM as funcoes
 
-from Configurações-M import Config
-from Player-M import Player
+from ConfiguraçõesM import Config
+from PlayerM import Player
 
 # puxa as configurações
 CONFIGURACOES = Config()
@@ -25,8 +25,8 @@ def rodar():
     pygame.init()
     pygame.mixer.init()
 
-	TELA = pygame.display.set_mode((CONFIGURACOES.largura_tela, CONFIGURACOES.altura_tela))
-	CLOCK = pygame.time.Clock()
+    TELA = pygame.display.set_mode((CONFIGURACOES.largura_tela, CONFIGURACOES.altura_tela))
+    CLOCK = pygame.time.Clock()
 
 	pygame.display.set_caption(CONFIG.titulo)
 
