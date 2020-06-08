@@ -9,7 +9,7 @@ class Player2(pygame.sprite.Sprite):
     'Classe que define o sprite do jogador'
 
     def __init__(self, tela, config):
-    'cria uma nova instância da classe Player'
+    'cria uma nova instância da classe Player2'
 
         self.tela = tela
         self.config = config
@@ -21,29 +21,29 @@ class Player2(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 20
 
         # propriedades customizadas de movimento
-        self.velocidade = Configurações-M.velocidade 'VERIFICAR'
-        self.centro = [self.rect.centerx, self.rect.centery]
+        self.velocidade2 = Configurações-M.velocidade 'VERIFICAR'
+        self.centro2 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
-        self.indo_para_cima = False
-        self.indo_para_baixo = False
-        self.indo_para_direita = False
-        self.indo_para_esquerda = False
+        self.indo_para_cima2 = False
+        self.indo_para_baixo2 = False
+        self.indo_para_direita2 = False
+        self.indo_para_esquerda2 = False
 
     def update(self):
         'atualiza posição do player conforme a velocidade'
 
-        if self.indo_para_cima:
-            self.centro[1] -= self.velocidade
+        if self.indo_para_cima2:
+            self.centro2[1] -= self.velocidade2
 
-        if self.indo_para_baixo:
-            self.centro[1] += self.velocidade
+        if self.indo_para_baixo2:
+            self.centro2[1] += self.velocidade2
 
-        if self.indo_para_direita:
-            self.centro[0] += self.velocidade
+        if self.indo_para_direita2:
+            self.centro2[0] += self.velocidade2
 
-        if self.indo_para_esquerda:
-            self.centro[0] -= self.velocidade
+        if self.indo_para_esquerda2:
+            self.centro2[0] -= self.velocidade2
 
-        self.rect.centerx = self.centro[0]
-        self.rect.centery = self.centro[1]
+        self.rect.centerx2 = self.centro2[0]
+        self.rect.centery2 = self.centro2[1]

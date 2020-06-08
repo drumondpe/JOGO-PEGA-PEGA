@@ -23,29 +23,29 @@ class Player1(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 20
 
         # propriedades customizadas de movimento
-        self.velocidade = Configurações-M.velocidade 'VERIFICAR'
-        self.centro = [self.rect.centerx, self.rect.centery]
+        self.velocidade1 = Configurações-M.velocidade 'VERIFICAR'
+        self.centro1 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
-        self.indo_para_cima = False
-        self.indo_para_baixo = False
-        self.indo_para_direita = False
-        self.indo_para_esquerda = False
+        self.indo_para_cima1 = False
+        self.indo_para_baixo1 = False
+        self.indo_para_direita1 = False
+        self.indo_para_esquerda1 = False
 
     def update(self):
         'atualiza posição do player conforme a velocidade'
 
-        if self.indo_para_cima:
-            self.centro[1] -= self.velocidade
+        if self.indo_para_cima1:
+            self.centro1[1] -= self.velocidade1
 
-        if self.indo_para_baixo:
-            self.centro[1] += self.velocidade
+        if self.indo_para_baixo1:
+            self.centro1[1] += self.velocidade1
 
-        if self.indo_para_direita:
-            self.centro[0] += self.velocidade
+        if self.indo_para_direita1:
+            self.centro1[0] += self.velocidade1
 
-        if self.indo_para_esquerda:
-            self.centro[0] -= self.velocidade
+        if self.indo_para_esquerda1:
+            self.centro1[0] -= self.velocidade1
 
-        self.rect.centerx = self.centro[0]
-        self.rect.centery = self.centro[1]
+        self.rect.centerx1 = self.centro1[0]
+        self.rect.centery1 = self.centro1[1]

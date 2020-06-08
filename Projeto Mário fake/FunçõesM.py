@@ -69,44 +69,67 @@ def checa_eventos(tela_inicial, game_over, rodando):
 		# se estiver em jogo, verificar as seguintes
 		elif not game_over:
 			
-			fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
-			pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
-            TELA.blit(pontuacao_jogo, ((CONFIG.largura_tela//2 - pontuacao_jogo.get_width() // 2, 90)))
+			#fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
+			#pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
+            #TELA.blit(pontuacao_jogo, ((CONFIG.largura_tela//2 - pontuacao_jogo.get_width() // 2, 90)))
 
 			if event.type == pygame.KEYDOWN:
 
-				#if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-				#	PACMAN.indo_para_baixo = True
+				# configurando Player 1
+				if event.key == pygame.K_s: 
+					PLAYER1.indo_para_baixo1 = True
 
-				#elif event.key == pygame.K_UP or event.key == pygame.K_w:
-				#	PACMAN.indo_para_cima = True
+				elif event.key == pygame.K_w:
+					PLAYER1.indo_para_cima1 = True
 
-				if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-					PLAYER1.indo_para_esquerda = True
+				elif event.key == pygame.K_a: #or event.key == pygame.K_LEFT:
+					PLAYER1.indo_para_esquerda1 = True
 
-				elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-					PLAYER1.indo_para_direita = True
+				elif event.key == pygame.K_d: #or event.key == pygame.K_RIGHT:
+					PLAYER1.indo_para_direita1 = True
 
-                elif event.key == pygame.K_SPACE:
-                    PLAYER1.pulando = True
+				# configurando Player 2
+				elif event.key == pygame.K_DOWN:
+					PLAYER2.indo_para_baixo2 = True
+
+				elif event.key == pygame.K_UP:
+					PLAYER2.indo_para_cima2 = True
+
+				elif event.key == pygame.K_LEFT:
+					PLAYER2.indo_para_esquerda2 = True
+
+				elif event.key == pygame.K_RIGHT:
+					PLAYER2.indo_para_direita2 = True
 
 
 			if event.type == pygame.KEYUP:
 
-				#if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-				#	PACMAN.indo_para_baixo = False
+				# configurando Player 1
+				if event.key == pygame.K_s: 
+					PLAYER1.indo_para_baixo1 = False
 
-				#elif event.key == pygame.K_UP or event.key == pygame.K_w:
-				#	PACMAN.indo_para_cima = False
+				elif event.key == pygame.K_w:
+					PLAYER1.indo_para_cima1 = False
 
-				if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-					PLAYER1.indo_para_esquerda = False
+				elif event.key == pygame.K_a: #or event.key == pygame.K_LEFT:
+					PLAYER1.indo_para_esquerda1 = False
 
-				elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-					PLAYER1.indo_para_direita = False
+				elif event.key == pygame.K_d: #or event.key == pygame.K_RIGHT:
+					PLAYER1.indo_para_direita1 = False
 
-                elif event.key == pygame.K_SPACE:
-                    PLAYER1.pulando = False
+				# configurando Player 2
+				elif event.key == pygame.K_DOWN:
+					PLAYER2.indo_para_baixo2 = False
+
+				elif event.key == pygame.K_UP:
+					PLAYER2.indo_para_cima2 = False
+
+				elif event.key == pygame.K_LEFT:
+					PLAYER2.indo_para_esquerda2 = False
+
+				elif event.key == pygame.K_RIGHT:
+					PLAYER2.indo_para_direita2 = False
+
 
 	return tela_inicial, rodando
             
