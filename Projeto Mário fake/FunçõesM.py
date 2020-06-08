@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jun  7 15:14:15 2020
 
 @author: Pedro Drumond
 """

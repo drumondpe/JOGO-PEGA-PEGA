@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jun  7 15:16:33 2020
 
 Autores: Keiya Nishio Pedro Drumond
 """

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Classe do Player
+Classe dos Players
 
 Authors: Keiya Nishio and Pedro Drumond
 """
