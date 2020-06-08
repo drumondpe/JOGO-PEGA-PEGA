@@ -9,8 +9,9 @@ import random
 
 import FunçõesM as funcoes
 
-from ConfiguraçõesM import Config
-from PlayerM import Player
+from ConfiguraçõesM import Config #as três são funções, precisa de ()?
+from Player1M import Player1
+from Player2M import Player2
 
 # puxa as configurações
 CONFIGURACOES = Config()
@@ -39,9 +40,12 @@ def rodar():
 	GAME_OVER = False
 
     # inicializando objetos
-    PLAYER1 = Player(TELA, CONFIGURACOES)
-    funcoes.init(CONFIG, TELA, PLAYER1)
+    PLAYER1 = Player1(TELA, CONFIGURACOES)
+    funcoes.init(CONFIGURACOES, TELA, PLAYER1)
     
+    PLAYER2 = Player2(TELA, CONFIGURACOES)
+    funcoes.init(CONFIGURACOES, TELA, PLAYER2)
+
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()
 
@@ -58,9 +62,11 @@ def rodar():
             TELA.fill(CORES.fundo)
             TELA.blit(MAPA, (0, 0))
 
-            PLAYER1.update() # atualiza posição do player
+            PLAYER1.update() # atualiza posição do player1
+            PLAYER2.update() # atualiza posição do player2
 
-            TELA.blit(PLAYER1.image, PLAYER.rect)
+            TELA.blit(PLAYER1.image, PLAYER1.rect)
+            TELA.blit(PLAYER2.image, PLAYER2.rect)
 
         elif GAME_OVER:
             pass
