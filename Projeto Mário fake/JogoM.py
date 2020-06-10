@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 
-Autores: Keiya Nishio e Pedro Drumonddddddd
+Autores: Keiya Nishio e Pedro Drumond
 """
 ### Precisamos fazer
 # ajeitar o programa
