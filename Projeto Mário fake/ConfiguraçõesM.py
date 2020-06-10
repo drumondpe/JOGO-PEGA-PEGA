@@ -12,8 +12,8 @@ class Config():
         self.titulo_jogo = 'Still Standing Man'
         self.pontuacao = 'Pontuação atual: XXX'
     #   self.pontuacao_record = 'Pontuação record: XXXX'
-        self.altura_tela = 700
-        self.largura_tela = 600
+        self.altura_tela = 570
+        self.largura_tela = 510
         self.FPS = 60
 
         self.velocidade = 5 #pixels
