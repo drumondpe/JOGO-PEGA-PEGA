@@ -14,7 +14,7 @@ class Player2(pygame.sprite.Sprite):
 
         self.tela = tela
         self.config = config
-        self.image = pygame.image.load('imagens/pacman.png') #mudar foto do player ou fotos
+        self.image = pygame.image.load('pacman.png') #mudar foto do player ou fotos
         self.rect = self.image.get_rect()
         self.screen_rect = tela.get_rect()
         self.rect.centerx = self.screen_rect.centerx

@@ -43,7 +43,7 @@ def rodar():
     pygame.display.set_caption(CONFIGURACOES.titulo_jogo)
 
     # inicialização de imagens  ------>  ainda precisamos ajeitar o mapa
-    MAPA = pygame.image.load('imagens/mapa.png').convert_alpha() #mudar mapa de fundo
+    MAPA = pygame.image.load('mapa.png').convert_alpha() #mudar mapa de fundo
 
     # booleanos do programa
     RODANDO = True

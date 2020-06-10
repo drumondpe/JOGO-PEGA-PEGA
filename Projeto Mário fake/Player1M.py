@@ -6,6 +6,8 @@ Authors: Keiya Nishio and Pedro Drumond
 """
 
 import pygame
+from ConfiguraçõesM import Config
+CONFIGURACOES = Config()
 
 class Player1(pygame.sprite.Sprite):
     #Classe que define o sprite do jogador
@@ -15,7 +17,7 @@ class Player1(pygame.sprite.Sprite):
 
         self.tela = tela
         self.config = config
-        self.image = pygame.image.load('imagens/pacman.png') #mudar foto do player ou fotos
+        self.image = pygame.image.load('pacman.png') #mudar foto do player ou fotos
         self.rect = self.image.get_rect()
         self.screen_rect = tela.get_rect()
         self.rect.centerx = self.screen_rect.centerx
@@ -23,7 +25,7 @@ class Player1(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 20
 
         # propriedades customizadas de movimento
-        self.velocidade1 = ConfiguraçõesM.velocidade #VERIFICAR
+        self.velocidade1 = CONFIGURACOES.velocidade #VERIFICAR
         self.centro1 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
