@@ -7,8 +7,9 @@ Created on Mon Jun  8 10:55:12 2020
 
 #### POR ENQUANTO SEM FUNCIONALIDADE ####
 
-
+import pygame
 from ConfiguraçõesM import Config
+from FunçõesM import TELA
 
 CONFIGURACOES = Config()
 TEXTOS = CONFIGURACOES.textos
