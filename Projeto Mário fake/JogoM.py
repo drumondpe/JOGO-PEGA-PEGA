@@ -4,7 +4,6 @@
 Autores: Keiya Nishio e Pedro Drumond
 """
 #### Precisamos fazer
-# ajeitar o programa
 # fazer as paredes
 # colisão entre os players
 # vidas dos players
@@ -34,7 +33,7 @@ CORES = CONFIGURACOES.cores
 def rodar():
 
     #### INICIALIZA O JOGO ####
-
+    # colocar essa música na tela de load https://www.youtube.com/watch?v=-bzWSJG93P8
     pygame.init()
     pygame.mixer.init()
 
@@ -72,6 +71,8 @@ def rodar():
 
         # LOOP DO JOGO
         if not GAME_OVER and not TELA_INICIAL:
+
+            # colocar essa música para o pega-pega https://www.youtube.com/watch?v=l7I8dYKeke8&list=PLB4DC2508C4D0076D&index=6 
 
             TELA.fill(CORES.fundo)
             Map.tela_jogando(TELA)

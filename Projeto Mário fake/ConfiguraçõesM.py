@@ -9,11 +9,11 @@ import pygame
 class Config():
     def __init__(self):
 
-        self.titulo_jogo = 'Still Standing Man'
+        self.titulo_jogo = 'Pega-pega clássicos'
         self.pontuacao = 'Pontuação atual: XXX'
     #   self.pontuacao_record = 'Pontuação record: XXXX'
-        self.altura_tela = 570
-        self.largura_tela = 510
+        self.altura_tela = 670
+        self.largura_tela = 610
         self.FPS = 60
 
         self.velocidade = 5 #pixels
