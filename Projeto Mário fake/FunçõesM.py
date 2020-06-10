@@ -47,7 +47,7 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
-def checa_eventos(tela_inicial, game_over, rodando):
+def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
     #avalia entradas e retorna booleanos de estado de jogo
 
     # verifica inputs do usuário
@@ -59,14 +59,14 @@ def checa_eventos(tela_inicial, game_over, rodando):
             break
         
         # se estiver na tela inicial, verificar as seguintes
-        if tela_inicial:
+        if TELA_INICIAL:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    tela_inicial = False
+                    TELA_INICIAL = False
                     break
         
         # se estiver em jogo, verificar as seguintes
-        elif not game_over:
+        elif not GAME_OVER:
             
             #fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
             #pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
