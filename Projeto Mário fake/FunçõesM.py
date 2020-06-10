@@ -3,7 +3,6 @@
 
 @author: Pedro Drumond
 """
-
 import pygame
 
 CONFIGURACOES = None

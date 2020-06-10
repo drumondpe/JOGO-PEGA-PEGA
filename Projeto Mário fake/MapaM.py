@@ -5,7 +5,7 @@ Created on Mon Jun  8 10:55:12 2020
 @author: Pedro Drumond
 """
 
-### POR ENQUANTO SEM FUNCIONALIDADE ###
+#### POR ENQUANTO SEM FUNCIONALIDADE ####
 
 
 from ConfiguraçõesM import Config

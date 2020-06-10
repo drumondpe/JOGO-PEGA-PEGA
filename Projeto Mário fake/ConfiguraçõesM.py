@@ -3,6 +3,7 @@
 
 Autores: Keiya Nishio Pedro Drumond
 """
+
 import pygame
 
 class Config():
