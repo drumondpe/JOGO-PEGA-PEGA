@@ -29,8 +29,8 @@ def apresenta_tela_inicial():
     #apresenta a tela de início
 
     #config de fontes
-    fonte_texto_inicial = pygama.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_grande) 
-    fonte_texto_nomes = pygama.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
+    fonte_texto_inicial = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_grande) 
+    fonte_texto_nomes = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
 
     #textos que aparecem na tela de início
     titulo_do_jogo = fonte_texto_inicial.render(CONFIGURACOES.titulo, True, CORES.titulo)
@@ -42,10 +42,10 @@ def apresenta_tela_inicial():
     #posicionamento na tela de início
     TELA.fill(CORES.fundo)
     TELA.blit(titulo_do_jogo, (CONFIGURACOES.largura_tela//2 - titulo_do_jogo.get_width() // 2, 90))
-    TELA.blit(botao_de_inicio1, (CONFIG.largura_tela//2 - botao_de_inicio1.get_width() // 2, 270))
-    TELA.blit(botao_de_inicio2, (CONFIG.largura_tela//2 - botao_de_inicio2.get_width() // 2, 310))
-    TELA.blit(nome_dos_criadores1, (CONFIG.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
-    TELA.blit(nome_dos_criadores2, (CONFIG.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
+    TELA.blit(botao_de_inicio1, (CONFIGURACOES.largura_tela//2 - botao_de_inicio1.get_width() // 2, 270))
+    TELA.blit(botao_de_inicio2, (CONFIGURACOES.largura_tela//2 - botao_de_inicio2.get_width() // 2, 310))
+    TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
+    TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
 def checa_eventos(tela_inicial, game_over, rodando):
     #avalia entradas e retorna booleanos de estado de jogo
