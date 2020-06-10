@@ -33,7 +33,7 @@ def apresenta_tela_inicial():
     fonte_texto_nomes = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
 
     #textos que aparecem na tela de início
-    titulo_do_jogo = fonte_texto_inicial.render(CONFIGURACOES.titulo, True, CORES.titulo)
+    titulo_do_jogo = fonte_texto_inicial.render(CONFIGURACOES.titulo_jogo, True, CORES.titulo)
     botao_de_inicio1 = fonte_texto_inicial.render('Pressione Barra de Espaço', True, (255, 40, 255))
     botao_de_inicio2 = fonte_texto_inicial.render('para começar', True, (255, 40, 255))
     nome_dos_criadores1 = fonte_texto_nomes.render('Keiya Nishio', True, CORES.nomes)
