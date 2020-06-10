@@ -55,7 +55,7 @@ def checa_eventos(tela_inicial, game_over, rodando):
         
         # verifica, antes de tudo, se o usuário quer sair
         if event.type == pygame.QUIT:
-            rodando = False
+            RODANDO = False
             break
         
         # se estiver na tela inicial, verificar as seguintes
