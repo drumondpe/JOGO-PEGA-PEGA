@@ -3,7 +3,7 @@
 
 Autores: Keiya Nishio e Pedro Drumond
 """
-### Precisamos fazer
+#### Precisamos fazer
 # ajeitar o programa
 # fazer as paredes
 # colisão entre os players
