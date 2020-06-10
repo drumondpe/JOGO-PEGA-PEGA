@@ -52,10 +52,10 @@ def rodar():
 
     # inicializando objetos
     PLAYER1 = Player1(TELA, CONFIGURACOES)
-    funcoes.init(CONFIGURACOES, TELA, PLAYER1)
-    
-    PLAYER2 = Player2(TELA, CONFIGURACOES)
-    funcoes.init(CONFIGURACOES, TELA, PLAYER2)
+    PLAYER2 = Player2(TELA, CONFIGURACOES)    
+    funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
+
+
 
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()

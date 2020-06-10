@@ -23,12 +23,12 @@ class Mapa(): # passar isso para dentro do Funções
         self.plano_de_fundo = pygame.image.load('mapa.png').convert_alpha() # carrega imagem do mapa
         self.plano_de_fundo = pygame.transform.scale(self.plano_de_fundo, (CONFIGURACOES.largura_tela, CONFIGURACOES.altura_tela))
 
-    def tela_jogando(self): # imprime o mapa na tela
-        self.TELA.blit(self.plano_de_fundo, (0, 0))
-        self.desenha_grid()
+    def tela_jogando(self, TELA): # imprime o mapa na tela
+        TELA.blit(self.plano_de_fundo, (0, 0))
+        self.desenha_grid(TELA)
         pygame.display.update()
     
-    def desenha_grid(self): # desenha os quadrados
+    def desenha_grid(self, TELA): # desenha os quadrados
         for i in range(CONFIGURACOES.largura_tela//self.cell_largura): # desenha linhas na vertical
             pygame.draw.line(self.tela, (255, 255, 255), (x*self.cell_largura, 0), (x*self.cell_altura, CONFIGURACOES.altura_tela))
         
