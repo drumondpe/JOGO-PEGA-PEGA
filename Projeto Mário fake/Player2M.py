@@ -48,5 +48,5 @@ class Player2(pygame.sprite.Sprite):
         if self.indo_para_esquerda2:
             self.centro2[0] -= self.velocidade2
 
-        self.rect.centerx2 = self.centro2[0]
-        self.rect.centery2 = self.centro2[1]
+        self.rect.centerx = self.centro2[0]
+        self.rect.centery = self.centro2[1]

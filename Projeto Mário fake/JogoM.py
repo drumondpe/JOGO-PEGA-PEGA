@@ -23,6 +23,7 @@ import FunçõesM as funcoes
 from ConfiguraçõesM import Config #as três são funções, precisa de ()?
 from Player1M import Player1
 from Player2M import Player2
+from MapaM import Mapa
 
 # puxa as configurações
 CONFIGURACOES = Config()
@@ -43,7 +44,8 @@ def rodar():
     pygame.display.set_caption(CONFIGURACOES.titulo_jogo)
 
     # inicialização de imagens  ------>  ainda precisamos ajeitar o mapa
-    MAPA = pygame.image.load('mapa.png').convert_alpha() #mudar mapa de fundo
+    #MAPA = pygame.image.load('mapa.png').convert_alpha() #mudar mapa de fundo
+
 
     # booleanos do programa
     RODANDO = True
@@ -51,6 +53,7 @@ def rodar():
     GAME_OVER = False
 
     # inicializando objetos
+    Map = Mapa(TELA, CONFIGURACOES)           # chama a função para colocar o mapa de fundo
     PLAYER1 = Player1(TELA, CONFIGURACOES)
     PLAYER2 = Player2(TELA, CONFIGURACOES)    
     funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
@@ -71,13 +74,7 @@ def rodar():
         if not GAME_OVER and not TELA_INICIAL:
 
             TELA.fill(CORES.fundo)
-            TELA.blit(MAPA, (0, 0))   #MEXER AQUI
-            #self.cell_width = CONFIGURACOES.largura_tela//28
-            #self.cell_width = CONFIGURACOES.altura_tela//30
-            TELA.cell_largura = CONFIGURACOES.largura_tela//28
-            TELA.cell_altura = CONFIGURACOES.altura_tela//30
-            #ADICIONAR A FUNÇÃO 'tela_jogando'
-
+            Map.tela_jogando(TELA)
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2

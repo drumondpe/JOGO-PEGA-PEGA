@@ -70,6 +70,7 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
             
             #fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
             #pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
+            #TELA.blit(MAPA)
             #TELA.blit(pontuacao_jogo, ((CONFIG.largura_tela//2 - pontuacao_jogo.get_width() // 2, 90)))
 
             if event.type == pygame.KEYDOWN:
