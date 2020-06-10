@@ -5,6 +5,8 @@ Created on Mon Jun  8 10:55:12 2020
 @author: Pedro Drumond
 """
 import pygame
+from ConfiguraçõesM import Config
+CONFIGURACOES = Config()
 
 class Player2(pygame.sprite.Sprite):
     #Classe que define o sprite do jogador
@@ -22,7 +24,7 @@ class Player2(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 20
 
         # propriedades customizadas de movimento
-        self.velocidade2 = ConfiguraçõesM.velocidade #VERIFICAR
+        self.velocidade2 = CONFIGURACOES.velocidade #VERIFICAR
         self.centro2 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
