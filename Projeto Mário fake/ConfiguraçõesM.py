@@ -16,7 +16,7 @@ class Config():
         self.altura_tela = 670
         
         self.altura_topo_tela = 50
-        self.largura_tela_fundo = self.largura_tela - self.altura_topo_tela
+        self.largura_tela_fundo = self.largura_tela
         self.altura_tela_fundo = self.altura_tela - self.altura_topo_tela
 
         self.FPS = 60

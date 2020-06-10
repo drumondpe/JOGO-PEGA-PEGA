@@ -72,10 +72,11 @@ def rodar():
         # LOOP DO JOGO
         if not GAME_OVER and not TELA_INICIAL:
 
-            # colocar essa música para o pega-pega https://www.youtube.com/watch?v=l7I8dYKeke8&list=PLB4DC2508C4D0076D&index=6 
+            # colocar essa música para o pega-pegahttps://www.youtube.com/watch?v=l7I8dYKeke8&list=PLB4DC2508C4D0076D&index=6 
 
             TELA.fill(CORES.fundo)
             Map.tela_jogando(TELA)
+            #Map.desenha_grid(TELA)
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2
