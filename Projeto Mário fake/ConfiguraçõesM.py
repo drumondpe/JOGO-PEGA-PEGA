@@ -14,6 +14,7 @@ class Config():
     #   self.pontuacao_record = 'Pontuação record: XXXX'
         self.altura_tela = 650
         self.largura_tela = 600
+        self.altura_topo_tela = 50
         self.FPS = 60
 
         self.velocidade = 5 #pixels
