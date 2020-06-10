@@ -4,12 +4,13 @@ Created on Mon Jun  8 10:55:12 2020
 
 @author: Pedro Drumond
 """
+import pygame
 
 class Player2(pygame.sprite.Sprite):
-    'Classe que define o sprite do jogador'
+    #Classe que define o sprite do jogador
 
     def __init__(self, tela, config):
-    'cria uma nova instância da classe Player2'
+    #cria uma nova instância da classe Player2
 
         self.tela = tela
         self.config = config
@@ -21,7 +22,7 @@ class Player2(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 20
 
         # propriedades customizadas de movimento
-        self.velocidade2 = Configurações-M.velocidade 'VERIFICAR'
+        self.velocidade2 = ConfiguraçõesM.velocidade #VERIFICAR
         self.centro2 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
@@ -31,7 +32,7 @@ class Player2(pygame.sprite.Sprite):
         self.indo_para_esquerda2 = False
 
     def update(self):
-        'atualiza posição do player conforme a velocidade'
+        #atualiza posição do player conforme a velocidade
 
         if self.indo_para_cima2:
             self.centro2[1] -= self.velocidade2

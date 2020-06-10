@@ -14,122 +14,122 @@ PLAYER1 = None
 PLAYER2 = None
 
 def init(config, tela, player1, player2):
-    'inicializa as variáveis das funções'
+    #inicializa as variáveis das funções
 
     global CONFIGURACOES, CORES, TEXTOS, TELA, PLAYER1, PLAYER2
 
     CONFIGURACOES = config    
     TELA = tela    
     PLAYER1 = player1
-	PLAYER2 = player2
+    PLAYER2 = player2
 
     TEXTOS = CONFIGURACOES.textos
     CORES = CONFIGURACOES.cores
 
 def apresenta_tela_inicial():
-    'apresenta a tela de início'
+    #apresenta a tela de início
 
     #config de fontes
     fonte_texto_inicial = pygama.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_grande) 
     fonte_texto_nomes = pygama.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
 
     #textos que aparecem na tela de início
-	titulo_do_jogo = fonte_texto_inicial.render(CONFIGURACOES.titulo, True, CORES.titulo)
-	botao_de_inicio1 = fonte_texto_inicial.render('Pressione Barra de Espaço', True, (255, 40, 255))
-	botao_de_inicio2 = fonte_texto_inicial.render('para começar', True, (255, 40, 255))
-	nome_dos_criadores1 = fonte_texto_nomes.render('Keiya Nishio', True, CORES.nomes)
-	nome_dos_criadores2 = fonte_texto_nomes.render('Pedro Drumond', True, CORES.nomes)
+    titulo_do_jogo = fonte_texto_inicial.render(CONFIGURACOES.titulo, True, CORES.titulo)
+    botao_de_inicio1 = fonte_texto_inicial.render('Pressione Barra de Espaço', True, (255, 40, 255))
+    botao_de_inicio2 = fonte_texto_inicial.render('para começar', True, (255, 40, 255))
+    nome_dos_criadores1 = fonte_texto_nomes.render('Keiya Nishio', True, CORES.nomes)
+    nome_dos_criadores2 = fonte_texto_nomes.render('Pedro Drumond', True, CORES.nomes)
 
     #posicionamento na tela de início
-	TELA.fill(CORES.fundo)
-	TELA.blit(titulo_do_jogo, (CONFIGURACOES.largura_tela//2 - titulo_do_jogo.get_width() // 2, 90))
-	TELA.blit(botao_de_inicio1, (CONFIG.largura_tela//2 - botao_de_inicio1.get_width() // 2, 270))
-	TELA.blit(botao_de_inicio2, (CONFIG.largura_tela//2 - botao_de_inicio2.get_width() // 2, 310))
-	TELA.blit(nome_dos_criadores1, (CONFIG.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
-	TELA.blit(nome_dos_criadores2, (CONFIG.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
+    TELA.fill(CORES.fundo)
+    TELA.blit(titulo_do_jogo, (CONFIGURACOES.largura_tela//2 - titulo_do_jogo.get_width() // 2, 90))
+    TELA.blit(botao_de_inicio1, (CONFIG.largura_tela//2 - botao_de_inicio1.get_width() // 2, 270))
+    TELA.blit(botao_de_inicio2, (CONFIG.largura_tela//2 - botao_de_inicio2.get_width() // 2, 310))
+    TELA.blit(nome_dos_criadores1, (CONFIG.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
+    TELA.blit(nome_dos_criadores2, (CONFIG.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
 def checa_eventos(tela_inicial, game_over, rodando):
-    'avalia entradas e retorna booleanos de estado de jogo'
+    #avalia entradas e retorna booleanos de estado de jogo
 
-	# verifica inputs do usuário
-	for event in pygame.event.get():
+    # verifica inputs do usuário
+    for event in pygame.event.get():
         
-		# verifica, antes de tudo, se o usuário quer sair
-		if event.type == pygame.QUIT:
-			rodando = False
-			break
+        # verifica, antes de tudo, se o usuário quer sair
+        if event.type == pygame.QUIT:
+            rodando = False
+            break
         
         # se estiver na tela inicial, verificar as seguintes
-		if tela_inicial:
-			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_SPACE:
-					tela_inicial = False
-					break
+        if tela_inicial:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    tela_inicial = False
+                    break
         
-		# se estiver em jogo, verificar as seguintes
-		elif not game_over:
-			
-			#fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
-			#pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
+        # se estiver em jogo, verificar as seguintes
+        elif not game_over:
+            
+            #fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
+            #pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
             #TELA.blit(pontuacao_jogo, ((CONFIG.largura_tela//2 - pontuacao_jogo.get_width() // 2, 90)))
 
-			if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
 
-				# configurando Player 1
-				if event.key == pygame.K_s: 
-					PLAYER1.indo_para_baixo1 = True
+                # configurando Player 1
+                if event.key == pygame.K_s: 
+                    PLAYER1.indo_para_baixo1 = True
 
-				elif event.key == pygame.K_w:
-					PLAYER1.indo_para_cima1 = True
+                elif event.key == pygame.K_w:
+                    PLAYER1.indo_para_cima1 = True
 
-				elif event.key == pygame.K_a: #or event.key == pygame.K_LEFT:
-					PLAYER1.indo_para_esquerda1 = True
+                elif event.key == pygame.K_a: #or event.key == pygame.K_LEFT:
+                    PLAYER1.indo_para_esquerda1 = True
 
-				elif event.key == pygame.K_d: #or event.key == pygame.K_RIGHT:
-					PLAYER1.indo_para_direita1 = True
+                elif event.key == pygame.K_d: #or event.key == pygame.K_RIGHT:
+                    PLAYER1.indo_para_direita1 = True
 
-				# configurando Player 2
-				elif event.key == pygame.K_DOWN:
-					PLAYER2.indo_para_baixo2 = True
+                # configurando Player 2
+                elif event.key == pygame.K_DOWN:
+                    PLAYER2.indo_para_baixo2 = True
 
-				elif event.key == pygame.K_UP:
-					PLAYER2.indo_para_cima2 = True
+                elif event.key == pygame.K_UP:
+                    PLAYER2.indo_para_cima2 = True
 
-				elif event.key == pygame.K_LEFT:
-					PLAYER2.indo_para_esquerda2 = True
+                elif event.key == pygame.K_LEFT:
+                    PLAYER2.indo_para_esquerda2 = True
 
-				elif event.key == pygame.K_RIGHT:
-					PLAYER2.indo_para_direita2 = True
-
-
-			if event.type == pygame.KEYUP:
-
-				# configurando Player 1
-				if event.key == pygame.K_s: 
-					PLAYER1.indo_para_baixo1 = False
-
-				elif event.key == pygame.K_w:
-					PLAYER1.indo_para_cima1 = False
-
-				elif event.key == pygame.K_a: #or event.key == pygame.K_LEFT:
-					PLAYER1.indo_para_esquerda1 = False
-
-				elif event.key == pygame.K_d: #or event.key == pygame.K_RIGHT:
-					PLAYER1.indo_para_direita1 = False
-
-				# configurando Player 2
-				elif event.key == pygame.K_DOWN:
-					PLAYER2.indo_para_baixo2 = False
-
-				elif event.key == pygame.K_UP:
-					PLAYER2.indo_para_cima2 = False
-
-				elif event.key == pygame.K_LEFT:
-					PLAYER2.indo_para_esquerda2 = False
-
-				elif event.key == pygame.K_RIGHT:
-					PLAYER2.indo_para_direita2 = False
+                elif event.key == pygame.K_RIGHT:
+                    PLAYER2.indo_para_direita2 = True
 
 
-	return tela_inicial, rodando
+            if event.type == pygame.KEYUP:
+
+                # configurando Player 1
+                if event.key == pygame.K_s: 
+                    PLAYER1.indo_para_baixo1 = False
+
+                elif event.key == pygame.K_w:
+                    PLAYER1.indo_para_cima1 = False
+
+                elif event.key == pygame.K_a: #or event.key == pygame.K_LEFT:
+                    PLAYER1.indo_para_esquerda1 = False
+
+                elif event.key == pygame.K_d: #or event.key == pygame.K_RIGHT:
+                    PLAYER1.indo_para_direita1 = False
+
+                # configurando Player 2
+                elif event.key == pygame.K_DOWN:
+                    PLAYER2.indo_para_baixo2 = False
+
+                elif event.key == pygame.K_UP:
+                    PLAYER2.indo_para_cima2 = False
+
+                elif event.key == pygame.K_LEFT:
+                    PLAYER2.indo_para_esquerda2 = False
+
+                elif event.key == pygame.K_RIGHT:
+                    PLAYER2.indo_para_direita2 = False
+
+
+    return tela_inicial, rodando
             

@@ -8,10 +8,10 @@ Authors: Keiya Nishio and Pedro Drumond
 import pygame
 
 class Player1(pygame.sprite.Sprite):
-    'Classe que define o sprite do jogador'
+    #Classe que define o sprite do jogador
 
     def __init__(self, tela, config):
-    'cria uma nova instância da classe Player1'
+        #cria uma nova instância da classe Player1
 
         self.tela = tela
         self.config = config
@@ -23,7 +23,7 @@ class Player1(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 20
 
         # propriedades customizadas de movimento
-        self.velocidade1 = Configurações-M.velocidade 'VERIFICAR'
+        self.velocidade1 = ConfiguraçõesM.velocidade #VERIFICAR
         self.centro1 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
@@ -33,7 +33,7 @@ class Player1(pygame.sprite.Sprite):
         self.indo_para_esquerda1 = False
 
     def update(self):
-        'atualiza posição do player conforme a velocidade'
+        #atualiza posição do player conforme a velocidade
 
         if self.indo_para_cima1:
             self.centro1[1] -= self.velocidade1

@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
 """
 
-@author: Pedro Drumondd
+Autores: Keiya Nishio e Pedro Drumondd
 """
+### Precisamos fazer
+# ajeitar o programa
+# fazer as paredes
+# colisão entre os players
+# vidas dos players
+# mostrar as vidas
+# tela de vencedor
+
+## Iterações
+# adicionar pontos
+# mostrar os pontos
 
 import pygame
 import random
@@ -29,15 +40,15 @@ def rodar():
     TELA = pygame.display.set_mode((CONFIGURACOES.largura_tela, CONFIGURACOES.altura_tela))
     CLOCK = pygame.time.Clock()
 
-	pygame.display.set_caption(CONFIG.titulo)
+    pygame.display.set_caption(CONFIGURACOES.titulo_jogo)
 
     # inicialização de imagens  ------>  ainda precisamos ajeitar o mapa
-	MAPA = pygame.image.load('imagens/mapa.png').convert_alpha() #mudar mapa de fundo
+    MAPA = pygame.image.load('imagens/mapa.png').convert_alpha() #mudar mapa de fundo
 
     # booleanos do programa
-	RODANDO = True
-	TELA_INICIAL = True
-	GAME_OVER = False
+    RODANDO = True
+    TELA_INICIAL = True
+    GAME_OVER = False
 
     # inicializando objetos
     PLAYER1 = Player1(TELA, CONFIGURACOES)
@@ -51,7 +62,7 @@ def rodar():
 
     ## LOOP PRINCIPAL ##
     while RODANDO:
-		CLOCK.tick(CONFIGURACOES.FPS)
+        CLOCK.tick(CONFIGURACOES.FPS)
 
         # atualiza booleanos do jogo
         TELA_INICIAL, RODANDO = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO)
@@ -60,7 +71,13 @@ def rodar():
         if not GAME_OVER and not TELA_INICIAL:
 
             TELA.fill(CORES.fundo)
-            TELA.blit(MAPA, (0, 0))
+            TELA.blit(MAPA, (0, 0))   #MEXER AQUI
+            #self.cell_width = CONFIGURACOES.largura_tela//28
+            #self.cell_width = CONFIGURACOES.altura_tela//30
+            TELA.cell_largura = CONFIGURACOES.largura_tela//28
+            TELA.cell_altura = CONFIGURACOES.altura_tela//30
+            #ADICIONAR A FUNÇÃO 'tela_jogando'
+
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2
@@ -71,7 +88,7 @@ def rodar():
         elif GAME_OVER:
             pass
 
-		pygame.display.flip()
+        pygame.display.flip()
 
 
 rodar()
