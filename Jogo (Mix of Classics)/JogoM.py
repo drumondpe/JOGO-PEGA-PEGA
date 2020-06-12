@@ -4,6 +4,7 @@
 Autores: Keiya Nishio e Pedro Drumond
 """
 #### Precisamos fazer
+# ajustar tamanho dos players
 # fazer as paredes
 # colisão entre os players
 # vidas dos players
@@ -65,7 +66,7 @@ def rodar():
     funcoes.apresenta_tela_inicial()
 
     ## LOOP PRINCIPAL ##
-    pygame.mixer.music.play()
+    #pygame.mixer.music.play()
     while RODANDO:
         
         CLOCK.tick(CONFIGURACOES.FPS)
