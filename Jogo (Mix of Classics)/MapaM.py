@@ -21,7 +21,7 @@ class Mapa(): # passar isso para dentro do Funções
     def __init__(self, tela, config): # não sei se precisa adicionar algo
 
         self.plano_de_fundo = pygame.image.load('mapa.png').convert_alpha() # carrega imagem do mapa
-        self.plano_de_fundo = pygame.transform.scale(self.plano_de_fundo, (CONFIGURACOES.largura_tela, CONFIGURACOES.altura_tela))
+        self.plano_de_fundo = pygame.transform.scale(self.plano_de_fundo, (CONFIGURACOES.largura_tela_fundo, CONFIGURACOES.altura_tela_fundo))
         self.cell_largura = CONFIGURACOES.largura_tela_fundo//28
         self.cell_altura = CONFIGURACOES.altura_tela_fundo//30  
 

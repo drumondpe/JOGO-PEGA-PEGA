@@ -19,7 +19,7 @@ import random
 
 import FunçõesM as funcoes
 
-from ConfiguraçõesM import Config #as três são funções, precisa de ()?
+from ConfiguraçõesM import Config 
 from Player1M import Player1
 from Player2M import Player2
 from MapaM import Mapa
@@ -52,30 +52,31 @@ def rodar():
     GAME_OVER = False
 
     # inicializando objetos
-    Map = Mapa(TELA, CONFIGURACOES)           # chama a função para colocar o mapa de fundo
+    MAPA = Mapa(TELA, CONFIGURACOES)           # chama a função para colocar o mapa de fundo
     PLAYER1 = Player1(TELA, CONFIGURACOES)
     PLAYER2 = Player2(TELA, CONFIGURACOES)    
     funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
 
-
+    #musica_starwars = pygame.mixer.music.load('') 
+    musica_slide64 = pygame.mixer.music.load('slider-remix.mp3') 
 
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()
 
     ## LOOP PRINCIPAL ##
+    #pygame.mixer.music.play()
     while RODANDO:
+        
         CLOCK.tick(CONFIGURACOES.FPS)
 
         # atualiza booleanos do jogo
         TELA_INICIAL, RODANDO = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO)
 
         # LOOP DO JOGO
-        if not GAME_OVER and not TELA_INICIAL:
-
-            # colocar essa música para o pega-pegahttps://www.youtube.com/watch?v=l7I8dYKeke8&list=PLB4DC2508C4D0076D&index=6 
-
+        if not GAME_OVER and not TELA_INICIAL: 
+            
             TELA.fill(CORES.fundo)
-            Map.tela_jogando(TELA)
+            MAPA.tela_jogando(TELA)
             #Map.desenha_grid(TELA)
 
             PLAYER1.update() # atualiza posição do player1
