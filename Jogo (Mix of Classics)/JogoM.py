@@ -7,13 +7,12 @@ Autores: Keiya Nishio e Pedro Drumond
 # ajustar tamanho dos players
 # fazer as paredes
 # colisão entre os players
+# fazer player pegador
 # vidas dos players
-# mostrar as vidas
 # tela de vencedor
 
 ## Iterações
-# adicionar pontos
-# mostrar os pontos
+# adicionar vidas
 
 import pygame
 import random
