@@ -47,6 +47,15 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
+def apresenta_segunda_tela():
+    # apresenta os textos da segunda tela
+    fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
+    player_pegador = fonte_textos.render('PLAYER PEGADOR: ', True, CORES.vermelho)
+    TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 88, 7))
+    # TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() // 2, 10))
+
+
+
 def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
     #avalia entradas e retorna booleanos de estado de jogo
 

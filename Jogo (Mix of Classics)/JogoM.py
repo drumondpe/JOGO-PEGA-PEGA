@@ -20,13 +20,14 @@ import random
 import FunçõesM as funcoes
 
 from ConfiguraçõesM import Config 
+from ConfiguraçõesM import Textos
 from Player1M import Player1
 from Player2M import Player2
 from MapaM import Mapa
 
 # puxa as configurações
 CONFIGURACOES = Config()
-TEXTOS = CONFIGURACOES.textos
+TEXTOS = Textos()
 CORES = CONFIGURACOES.cores
 
 # roda o jogo
@@ -77,11 +78,12 @@ def rodar():
             
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
-            #Map.desenha_grid(TELA)
+            funcoes.apresenta_segunda_tela()
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2
 
+            #TELA.blit(CONFIGURACOES.textos('PEGADOR: PLAYER 2'))
             TELA.blit(PLAYER1.image, PLAYER1.rect)
             TELA.blit(PLAYER2.image, PLAYER2.rect)
 
