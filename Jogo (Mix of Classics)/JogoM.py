@@ -3,6 +3,11 @@
 
 Autores: Keiya Nishio e Pedro Drumond
 """
+# PARA PERGUNTAR
+# - Como diminuir o tamanho da imagem
+# - Como criar as paredes
+# - Como colocar mais de uma música e sons (diminuir o som?)
+
 ### Precisamos fazer
 # ajustar tamanho dos players
 # fazer as paredes
@@ -60,15 +65,16 @@ def rodar():
     funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
 
     #musica_starwars = pygame.mixer.music.load('') 
+    musica_starwars = pygame.mixer.music.load('force-theme.mp3')
     musica_slide64 = pygame.mixer.music.load('slider-remix.mp3') 
+    sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
 
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()
 
     ## LOOP PRINCIPAL ##
-    #pygame.mixer.music.play()
+    pygame.mixer.music.play()
     while RODANDO:
-        
         CLOCK.tick(CONFIGURACOES.FPS)
 
         # atualiza booleanos do jogo
@@ -76,7 +82,6 @@ def rodar():
 
         # LOOP DO JOGO
         if not GAME_OVER and not TELA_INICIAL: 
-            
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
             funcoes.apresenta_segunda_tela()
