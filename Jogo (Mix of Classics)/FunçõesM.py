@@ -52,9 +52,14 @@ def apresenta_segunda_tela():
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
     player_pegador = fonte_textos.render('PLAYER PEGADOR: ', True, CORES.vermelho)
     TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 88, 7))
-    # TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() // 2, 10))
+    
+#def contagem_30_segundos():
 
-
+#def apresenta_contagem_tempo():
+    # apresenta o tempo que falta para o pegador
+    #fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
+    #imprime_contagem = fonte_textos.render('TEMPO RESTANTE: ', True, CORES.amarelo)
+    #TELA.blit(imprime_contagem, (CONFIGURACOES.largura_tela_fundo//2 - imprime_contagem.get_width() + 100, 7)
 
 def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
     #avalia entradas e retorna booleanos de estado de jogo
