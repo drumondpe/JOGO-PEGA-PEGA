@@ -17,6 +17,7 @@ Autores: Keiya Nishio e Pedro Drumond
 
 import pygame
 import random
+import math
 
 import FunçõesM as funcoes
 
@@ -25,7 +26,7 @@ from ConfiguraçõesM import Textos
 from Player1M import Player1
 from Player2M import Player2
 from MapaM import Mapa
-
+vetor = pygame.math.Vector2
 # puxa as configurações
 CONFIGURACOES = Config()
 TEXTOS = Textos()

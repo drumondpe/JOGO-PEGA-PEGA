@@ -8,6 +8,8 @@ Created on Mon Jun  8 10:55:12 2020
 #### POR ENQUANTO SEM FUNCIONALIDADE ####
 
 import pygame
+import math
+vetor = pygame.math.Vector2
 from ConfiguraçõesM import Config
 from FunçõesM import TELA
 

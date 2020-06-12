@@ -4,6 +4,8 @@
 @author: Pedro Drumond
 """
 import pygame
+import math
+vetor = pygame.math.Vector2
 
 CONFIGURACOES = None
 CORES = None

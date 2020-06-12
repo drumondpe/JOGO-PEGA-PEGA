@@ -3,8 +3,9 @@
 
 Autores: Keiya Nishio Pedro Drumond
 """
-
+import math
 import pygame
+vetor = pygame.math.Vector2
 
 class Config():
     def __init__(self):

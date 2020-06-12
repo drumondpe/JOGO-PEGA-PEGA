@@ -9,8 +9,10 @@ Created on Mon Jun  8 10:55:12 2020
 #### POR ENQUANTO SEM FUNCIONALIDADE ####
 
 import pygame
+import math
 from ConfiguraçõesM import Config
 from FunçõesM import TELA
+vetor = pygame.math.Vector2
 
 CONFIGURACOES = Config()
 TEXTOS = CONFIGURACOES.textos
@@ -19,7 +21,7 @@ CORES = CONFIGURACOES.cores
 
 
 class Mapa(): # passar isso para dentro do Funções
-    def __init__(self, tela, config): # não sei se precisa adicionar algo
+    def __init__(self, tela, config): #faz as variáveis dentro da classe Mapa
 
         self.plano_de_fundo = pygame.image.load('mapa.png').convert_alpha() # carrega imagem do mapa
         self.plano_de_fundo = pygame.transform.scale(self.plano_de_fundo, (CONFIGURACOES.largura_tela_fundo, CONFIGURACOES.altura_tela_fundo))
@@ -27,14 +29,14 @@ class Mapa(): # passar isso para dentro do Funções
         self.cell_altura = CONFIGURACOES.altura_tela_fundo//30
         self.paredes = []  
 
-    def tela_jogando(self, TELA): # imprime o mapa na tela
+    def tela_jogando(self, TELA): # imprime o mapa na tela (com as paredes?)
         TELA.blit(self.plano_de_fundo, (CONFIGURACOES.altura_topo_tela//2, CONFIGURACOES.altura_topo_tela//2))
 
-        with open('Paredes.txt', 'r') as file:     #abri o arquivo binário e cria uma lista
+        with open('Paredes.txt', 'r') as file:     #abri o arquivo binário e cria uma lista para as paredes
             for y, linha in enumerate (file):
                 for x, binario in enumerate(linha):
                     if binario == '1':
-                        self.paredes.append(vec(x, y))     #verifica vetor 
+                        self.paredes.append(vetor(x, y))     #verificar vetor 
 
         self.desenha_grid(TELA)
         pygame.display.update()
