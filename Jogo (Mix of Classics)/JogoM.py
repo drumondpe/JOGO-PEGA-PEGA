@@ -60,8 +60,8 @@ def rodar():
 
     # inicializando objetos
     MAPA = Mapa(TELA, CONFIGURACOES)           # chama a função para colocar o mapa de fundo
-    PLAYER1 = Player1(TELA, CONFIGURACOES)
-    PLAYER2 = Player2(TELA, CONFIGURACOES)    
+    PLAYER1 = Player1(TELA, CONFIGURACOES, MAPA)
+    PLAYER2 = Player2(TELA, CONFIGURACOES, MAPA)    
     funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
 
     #musica_starwars = pygame.mixer.music.load('') 

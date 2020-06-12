@@ -12,13 +12,14 @@ CONFIGURACOES = Config()
 class Player1(pygame.sprite.Sprite):
     #Classe que define o sprite do jogador
 
-    def __init__(self, tela, config):
+    def __init__(self, tela, config, mapa):
         #cria uma nova instância da classe Player1
 
         self.tela = tela
         self.config = config
+        self.mapa = mapa
         self.image = pygame.image.load('pacman.png') #mudar foto do player ou fotos
-        #self.image = pygame.transform.scale(image, (10, 10))
+        self.image = pygame.transform.scale(self.image, (15, 15))
         self.rect = self.image.get_rect()
         self.screen_rect = tela.get_rect()
         self.rect.centerx = self.screen_rect.centerx - 250
@@ -38,6 +39,8 @@ class Player1(pygame.sprite.Sprite):
     def update(self):
         #atualiza posição do player conforme a velocidade
 
+        x_antigo = self.centro1[0]
+        y_antigo = self.centro1[1]
         if self.indo_para_cima1:
             self.centro1[1] -= self.velocidade1
 
@@ -52,3 +55,11 @@ class Player1(pygame.sprite.Sprite):
 
         self.rect.centerx = self.centro1[0]
         self.rect.centery = self.centro1[1]
+
+        colidiu = pygame.sprite.collide_mask(self, self.mapa)
+        if colidiu:
+            self.centro1[0] = x_antigo
+            self.centro1[1] = y_antigo
+            self.rect.centerx = self.centro1[0]
+            self.rect.centery = self.centro1[1]
+
