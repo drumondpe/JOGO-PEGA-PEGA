@@ -73,7 +73,8 @@ def rodar():
     funcoes.apresenta_tela_inicial()
 
     ## LOOP PRINCIPAL ##
-    pygame.mixer.music.play()
+    
+    #pygame.mixer.music.play()
     while RODANDO:
         CLOCK.tick(CONFIGURACOES.FPS)
 
