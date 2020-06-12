@@ -30,7 +30,7 @@ class Mapa(): # passar isso para dentro do Funções
     def tela_jogando(self, TELA): # imprime o mapa na tela
         TELA.blit(self.plano_de_fundo, (CONFIGURACOES.altura_topo_tela//2, CONFIGURACOES.altura_topo_tela//2))
 
-        with open(file, mode='r', buffering=-1) 
+        with open('Paredes.txt', 'r') as file:
 
         self.desenha_grid(TELA)
         pygame.display.update()
