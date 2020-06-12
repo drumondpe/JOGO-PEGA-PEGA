@@ -19,9 +19,9 @@ class Player2(pygame.sprite.Sprite):
         self.image = pygame.image.load('pacman.png') #mudar foto do player ou fotos
         self.rect = self.image.get_rect()
         self.screen_rect = tela.get_rect()
-        self.rect.centerx = self.screen_rect.centerx - 250
+        self.rect.centerx = self.screen_rect.centerx + 250
         self.rect.centery = self.screen_rect.centery
-        self.rect.bottom = self.screen_rect.bottom - 605
+        self.rect.bottom = self.screen_rect.bottom - 45
 
         # propriedades customizadas de movimento
         self.velocidade2 = CONFIGURACOES.velocidade #VERIFICAR
