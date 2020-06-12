@@ -42,8 +42,12 @@ class Mapa(): # passar isso para dentro do Funções
         pygame.display.update()
     
     def desenha_grid(self, TELA): # desenha os quadrados
-        for x in range(CONFIGURACOES.largura_tela//self.cell_largura): # desenha linhas na vertical
-            pygame.draw.line(self.plano_de_fundo, (255, 255, 255), (x*self.cell_largura, 0), (x*self.cell_largura, CONFIGURACOES.altura_tela))
+        for i in range(CONFIGURACOES.largura_tela//self.cell_largura): # desenha linhas na vertical
+            pygame.draw.line(self.plano_de_fundo, (255, 255, 255), (i*self.cell_largura, 0), (i*self.cell_largura, CONFIGURACOES.altura_tela))
         
-        for x in range(CONFIGURACOES.altura_tela//self.cell_altura): # desenha linhas na horizontal
-            pygame.draw.line(self.plano_de_fundo, (255, 255, 255), (0, x*self.cell_altura), (CONFIGURACOES.largura_tela, x*self.cell_altura))
+        for i in range(CONFIGURACOES.altura_tela//self.cell_altura): # desenha linhas na horizontal
+            pygame.draw.line(self.plano_de_fundo, (255, 255, 255), (0, i*self.cell_altura), (CONFIGURACOES.largura_tela, i*self.cell_altura))
+
+        for parede in self.paredes:
+            pygame.draw.rect(self.plano_de_fundo, (CORES.aqua), (parede.x*self.cell_largura, parede.y*self.cell_altura, self.cell_largura, self.cell_altura))
+        
