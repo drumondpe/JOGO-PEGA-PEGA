@@ -29,13 +29,15 @@ class Mapa(pygame.sprite.Sprite): # passar isso para dentro do Funções
         
         self.mask = pygame.image.load('mapa - mascara.png')
         self.mask = pygame.transform.scale(self.mask, (CONFIGURACOES.largura_tela_fundo, CONFIGURACOES.altura_tela_fundo))
-        self.mask.set_colorkey((CORES.verde))
+        self.mask.set_colorkey((0, 0, 0))
         self.image = self.mask
         self.rect = self.image.get_rect()
+        self.rect.x = CONFIGURACOES.altura_topo_tela//2
+        self.rect.y = CONFIGURACOES.altura_topo_tela//2
         self.mask = pygame.mask.from_surface(self.mask)
 
     def tela_jogando(self, TELA): # imprime o mapa na tela
-        TELA.blit(self.mask, (CONFIGURACOES.altura_topo_tela//2, CONFIGURACOES.altura_topo_tela//2))
+        TELA.blit(self.image, self.rect)
         #self.desenha_grid(TELA)
         pygame.display.update()
     
