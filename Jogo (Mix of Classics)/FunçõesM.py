@@ -5,6 +5,8 @@
 """
 import pygame
 import math
+from Player1M import Player1
+from Player2M import Player2
 vetor = pygame.math.Vector2
 
 CONFIGURACOES = None
@@ -49,21 +51,34 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
-def apresenta_segunda_tela():
-    # apresenta os textos da segunda tela
+def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
-    player_pegador = fonte_textos.render('PLAYER PEGADOR: ', True, CORES.vermelho)
+    player_pegador = fonte_textos.render('PLAYER PEGADOR: AZUL', True, CORES.aqua)
     TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 88, 7))
-    
-#def contagem_30_segundos():
 
-#def apresenta_contagem_tempo():
-    # apresenta o tempo que falta para o pegador
-    #fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
-    #imprime_contagem = fonte_textos.render('TEMPO RESTANTE: ', True, CORES.amarelo)
-    #TELA.blit(imprime_contagem, (CONFIGURACOES.largura_tela_fundo//2 - imprime_contagem.get_width() + 100, 7)
+def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do vencedor se for pegador
+    fonte_textos_pegador = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
+    parabenizacao1 = fonte_textos_pegador.render('Parabéns Player 2', True, CORES.azul_marinho)
+    imagem_sonico = pygame.image.load('pacman-azul.png') # MUDAR IMAGEM
+    imagem_sonico = pygame.transform.scale(imagem_sonico, (100, 100)) # MUDAR TAMANHO
 
-def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
+    TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() - 88, 50))
+    TELA.blit(imagem_sonico, 100, 100)
+
+def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do vencedor se for fugitivo
+    fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
+    parabenizacao2 = fonte_textos_pegador.render('Parabéns Player 1', True, CORES.amarelo)
+    imagem_mario_deepweb = pygame.image.load('pacman.png') # MUDAR IMAGEM
+    imagem_mario_deepweb = pygame.transform.scale(imagem_sonico, (100, 100)) # MUDAR TAMANHO
+
+    TELA.blit(parabenizacao2, (CONFIGURACOES.largura_tela//2 - parabenizacao2.get_width() - 88, 50))
+    TELA.blit(imagem_mario_deepweb, 100, 100)
+
+def contador_tempo():
+    # conta os 30 segundos
+    return tempo
+
+def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP):
     #avalia entradas e retorna booleanos de estado de jogo
 
     # verifica inputs do usuário
@@ -77,18 +92,14 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
         # se estiver na tela inicial, verificar as seguintes
         if TELA_INICIAL:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
                     TELA_INICIAL = False
-                    break
+                    SEGUNDA_TELA = True
         
         # se estiver em jogo, verificar as seguintes
-        elif not GAME_OVER:
-            
-            #fonte_texto_pontuacao = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
-            #pontuacao_jogo = fonte_texto_pontuacao.render('Sua pontuação: {}'.format('pontuacao_player'), True, (150, 150, 150))
-            #TELA.blit(MAPA)
-            #TELA.blit(pontuacao_jogo, ((CONFIG.largura_tela//2 - pontuacao_jogo.get_width() // 2, 90)))
+        elif SEGUNDA_TELA:
 
+            contador_tempo()  # VERIFICAR SE FICA AQUI OU VAI PARA O "JOGO"
             if event.type == pygame.KEYDOWN:
 
                 # configurando Player 1
@@ -145,7 +156,31 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO):
 
                 elif event.key == pygame.K_RIGHT:
                     PLAYER2.indo_para_direita2 = False
+                
+
+            if Player1.centro1 == Player2.centro2: # verifica se houve colisão
+                PLAYERS_COLIDIRAM = True
+                SEGUNDA_TELA = False
+                #podia tocar um som de wasted
+
+            if tempo == 0:
+                TIME_IS_UP = True
+                SEGUNDA_TELA = False
+                #podia tocar um som 
+                
+        elif PLAYERS_COLIDIRAM or TIME_IS_UP:
+            if event.type == pygame.KEYDOWN:
+
+                if event.key == pygame.K_SPACE:
+                    PLAYERS_COLIDIRAM = False
+                    TIME_IS_UP = False
+                    SEGUNDA_TELA = True
+
+                elif event.key == pygame.K_BACKSPACE:
+                    PLAYERS_COLIDIRAM = False
+                    TIME_IS_UP = False
+                    RODANDO = False
 
 
-    return TELA_INICIAL, RODANDO
+    return TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP
             

@@ -7,6 +7,7 @@ Authors: Keiya Nishio and Pedro Drumond
 
 import pygame
 from ConfiguraçõesM import Config
+from Player2M import Player2
 CONFIGURACOES = Config()
 
 class Player1(pygame.sprite.Sprite):
@@ -37,6 +38,7 @@ class Player1(pygame.sprite.Sprite):
         self.indo_para_baixo1 = False
         self.indo_para_direita1 = False
         self.indo_para_esquerda1 = False
+
 
     def update(self):
         #atualiza posição do player conforme a velocidade

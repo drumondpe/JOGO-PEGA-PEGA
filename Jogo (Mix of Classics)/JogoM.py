@@ -6,13 +6,11 @@ Autores: Keiya Nishio e Pedro Drumond
 
 
 ### Precisamos fazer
-# colisão entre os players
+# colisão entre os players - acho que foi
+# apresentar tempo que falta
 # fazer player pegador
-# vidas dos players
-# tela de vencedor
 
-## Iterações
-# adicionar vidas
+
 
 import pygame
 import random
@@ -51,6 +49,9 @@ def rodar():
     # booleanos do programa
     RODANDO = True
     TELA_INICIAL = True
+    SEGUNDA_TELA = False
+    PLAYERS_COLIDIRAM = False
+    TIME_IS_UP = False # quando o temporizador chega a zero
     GAME_OVER = False
 
     # inicializando objetos
@@ -74,10 +75,10 @@ def rodar():
         CLOCK.tick(CONFIGURACOES.FPS)
 
         # atualiza booleanos do jogo
-        TELA_INICIAL, RODANDO = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO)
+        TELA_INICIAL, RODANDO = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP)
 
         # LOOP DO JOGO
-        if not GAME_OVER and not TELA_INICIAL: 
+        if SEGUNDA_TELA and not GAME_OVER and not TELA_INICIAL and not PLAYERS_COLIDIRAM, and not TIME_IS_UP:
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
             funcoes.apresenta_segunda_tela()
@@ -86,10 +87,17 @@ def rodar():
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2
 
-            #TELA.blit(CONFIGURACOES.textos('PEGADOR: PLAYER 2'))
             TELA.blit(PLAYER1.image, PLAYER1.rect)
             TELA.blit(PLAYER2.image, PLAYER2.rect)
 
+        elif PLAYERS_COLIDIRAM:
+            TELA.fill(CORES.fundo)
+            funcoes.apresenta_tela_vencedor_pegador()
+
+        elif TIME_IS_UP:
+            TELA.fill(CORES.fundo)
+            funcoes.apresenta_tela_vencedor_tempo()
+        
         elif GAME_OVER:
             pass
 
