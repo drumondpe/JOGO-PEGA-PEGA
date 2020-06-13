@@ -7,6 +7,7 @@ Autores: Keiya Nishio e Pedro Drumond
 
 ### Precisamos fazer
 # colisão entre os players - acho que foi
+# fazer a função da contagem regressiva
 # apresentar tempo que falta
 # fazer player pegador
 
