@@ -9,7 +9,7 @@ Autores: Keiya Nishio e Pedro Drumond
 # colisão entre os players - acho que foi
 # fazer a função da contagem regressiva
 # apresentar tempo que falta
-# fazer player pegador
+# ajeitar erros bestas
 
 
 
@@ -79,7 +79,7 @@ def rodar():
         TELA_INICIAL, RODANDO = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP)
 
         # LOOP DO JOGO
-        if SEGUNDA_TELA and not GAME_OVER and not TELA_INICIAL and not PLAYERS_COLIDIRAM, and not TIME_IS_UP:
+        if SEGUNDA_TELA and not GAME_OVER and not TELA_INICIAL and not PLAYERS_COLIDIRAM and not TIME_IS_UP:
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
             funcoes.apresenta_segunda_tela()
