@@ -3,14 +3,9 @@
 
 Autores: Keiya Nishio e Pedro Drumond
 """
-# PARA PERGUNTAR
-# - Como diminuir o tamanho da imagem
-# - Como criar as paredes
-# - Como colocar mais de uma música e sons (diminuir o som?)
+
 
 ### Precisamos fazer
-# ajustar tamanho dos players
-# fazer as paredes
 # colisão entre os players
 # fazer player pegador
 # vidas dos players
