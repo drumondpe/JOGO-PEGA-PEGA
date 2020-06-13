@@ -26,7 +26,7 @@ class Player2(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 45
 
         # propriedades customizadas de movimento
-        self.velocidade2 = CONFIGURACOES.velocidade #VERIFICAR
+        self.velocidade2 = CONFIGURACOES.velocidade_player2 #VERIFICAR
         self.centro2 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
