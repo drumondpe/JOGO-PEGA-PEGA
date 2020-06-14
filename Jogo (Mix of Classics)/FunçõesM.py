@@ -97,7 +97,7 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         if TELA_INICIAL:
             musica_starwars = pygame.mixer.music.load('force-theme.mp3')
             pygame.mixer.music.play()
-            
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
                     TELA_INICIAL = False
@@ -105,6 +105,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
+            musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
+            pygame.mixer.music.play()
 
             hits = pygame.sprite.spritecollide(PLAYER1, PLAYER2, True)
 
