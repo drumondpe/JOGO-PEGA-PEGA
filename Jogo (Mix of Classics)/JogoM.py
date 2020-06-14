@@ -63,7 +63,7 @@ def rodar():
     #musica_starwars = pygame.mixer.music.load('') 
     musica_starwars = pygame.mixer.music.load('force-theme.mp3')
     musica_slide64 = pygame.mixer.music.load('slider-remix.mp3') 
-    sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
+    #sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
 
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()
