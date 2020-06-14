@@ -16,6 +16,7 @@ TELA = None
 PLAYER1 = None
 PLAYER2 = None
 
+
 def init(config, tela, player1, player2):
     #inicializa as variáveis das funções
 
@@ -51,10 +52,13 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
+def contador_tempo(): # apresenta e faz a contagem do tempo
+
+
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
     player_pegador = fonte_textos.render('PLAYER PEGADOR: AZUL', True, CORES.aqua)
-    tempo_restante = fonte_textos.render('TEMPO RESTANTE PARA PEGAR: MUDAR AQUI', True, CORES.vermelho)
+    tempo_restante = fonte_textos.render('TEMPO RESTANTE PARA PEGAR: MUDAR AQUI', True, CORES.vermelho)  ### MUDAR AQUI
     TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 88, 7))
     TELA.blit(tempo_restante, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 400, 7))
 
@@ -65,7 +69,8 @@ def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do
     imagem_sonico = pygame.transform.scale(imagem_sonico, (100, 100)) # MUDAR TAMANHO
 
     TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() - 88, 50))
-    TELA.blit(imagem_sonico, 100, 100)
+    TELA.blit(imagem_sonico, (100, 100))
+
 
 def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do vencedor se for fugitivo
     fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
@@ -76,9 +81,6 @@ def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do v
     TELA.blit(parabenizacao2, (CONFIGURACOES.largura_tela//2 - parabenizacao2.get_width() - 88, 50))
     TELA.blit(imagem_mario_deepweb, 100, 100)
 
-def contador_tempo():
-    # conta os 30 segundos
-    return tempo
 
 def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP):
     #avalia entradas e retorna booleanos de estado de jogo
@@ -101,7 +103,9 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
 
-            contador_tempo()  # VERIFICAR SE FICA AQUI OU VAI PARA O "JOGO"
+            hits = pygame.sprite.spritecollide(PLAYER1, PLAYER2, True)
+
+            #contador_tempo()  # VERIFICAR SE FICA AQUI OU VAI PARA O "JOGO"
             if event.type == pygame.KEYDOWN:
 
                 # configurando Player 1
@@ -159,11 +163,14 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 elif event.key == pygame.K_RIGHT:
                     PLAYER2.indo_para_direita2 = False
                 
-
-            if Player1.centro1 == Player2.centro2: # verifica se houve colisão
+            if len(hits)>0:
+            #if Player1.centro1 == Player2.centro2: # verifica se houve colisão
                 PLAYERS_COLIDIRAM = True
                 SEGUNDA_TELA = False
-                #podia tocar um som de wasted
+                sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
+                pygame.mixer.music.play()
+
+
 
             if tempo == 0:
                 TIME_IS_UP = True

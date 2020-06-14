@@ -6,9 +6,8 @@ Autores: Keiya Nishio e Pedro Drumond
 
 
 ### Precisamos fazer
-# colisão entre os players - acho que foi
+# ajeitar a colisão entre os players 
 # fazer a função da contagem regressiva
-# apresentar tempo que falta
 # ajeitar erros bestas
 
 
