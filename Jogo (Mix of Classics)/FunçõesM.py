@@ -52,8 +52,7 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
-def contador_tempo(): # apresenta e faz a contagem do tempo
-
+#def contador_tempo(): # apresenta e faz a contagem do tempo
 
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
@@ -183,6 +182,10 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 #podia tocar um som 
                 
         elif PLAYERS_COLIDIRAM or TIME_IS_UP:
+
+            musica_vencedor = pygame.mixer.music.load('winner-sound')
+            pygame.mixer.music.play()
+
             if event.type == pygame.KEYDOWN:
 
                 if event.key == pygame.K_SPACE:
