@@ -95,6 +95,9 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver na tela inicial, verificar as seguintes
         if TELA_INICIAL:
+            musica_starwars = pygame.mixer.music.load('force-theme.mp3')
+            pygame.mixer.music.play()
+            
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
                     TELA_INICIAL = False
