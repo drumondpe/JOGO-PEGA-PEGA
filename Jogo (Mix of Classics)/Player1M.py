@@ -19,7 +19,7 @@ class Player1(pygame.sprite.Sprite):
         self.tela = tela
         self.config = config
         self.mapa = mapa
-        self.image = pygame.image.load('pacman.png') #mudar foto do player ou fotos
+        self.image = pygame.image.load('pacman.png') 
         self.image = pygame.transform.scale(self.image, (20, 20))
         self.image.set_colorkey((0,0,0))
         self.mask = pygame.mask.from_surface(self.image)
@@ -30,7 +30,7 @@ class Player1(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom -605
 
         # propriedades customizadas de movimento
-        self.velocidade1 = CONFIGURACOES.velocidade_player1 #VERIFICAR
+        self.velocidade1 = CONFIGURACOES.velocidade_player1 
         self.centro1 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
@@ -60,7 +60,7 @@ class Player1(pygame.sprite.Sprite):
         self.rect.centerx = self.centro1[0]
         self.rect.centery = self.centro1[1]
 
-        colidiu = pygame.sprite.collide_mask(self, self.mapa)
+        colidiu = pygame.sprite.collide_mask(self, self.mapa) #colisão com a parede
         if colidiu:
             self.centro1[0] = x_antigo
             self.centro1[1] = y_antigo

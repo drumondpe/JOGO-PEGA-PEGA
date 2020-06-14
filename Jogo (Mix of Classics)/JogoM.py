@@ -33,7 +33,6 @@ CORES = CONFIGURACOES.cores
 def rodar():
 
     #### INICIALIZA O JOGO ####
-    # colocar essa música na tela de load https://www.youtube.com/watch?v=-bzWSJG93P8
     pygame.init()
     pygame.mixer.init()
 
@@ -42,8 +41,6 @@ def rodar():
 
     pygame.display.set_caption(CONFIGURACOES.titulo_jogo)
 
-    # inicialização de imagens  ------>  ainda precisamos ajeitar o mapa
-    #MAPA = pygame.image.load('mapa.png').convert_alpha() #mudar mapa de fundo
 
 
     # booleanos do programa
@@ -55,7 +52,7 @@ def rodar():
     GAME_OVER = False
 
     # inicializando objetos
-    MAPA = Mapa(TELA, CONFIGURACOES)           # chama a função para colocar o mapa de fundo
+    MAPA = Mapa(TELA, CONFIGURACOES)           
     PLAYER1 = Player1(TELA, CONFIGURACOES, MAPA)
     PLAYER2 = Player2(TELA, CONFIGURACOES, MAPA)    
     funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
@@ -90,11 +87,11 @@ def rodar():
             TELA.blit(PLAYER1.image, PLAYER1.rect)
             TELA.blit(PLAYER2.image, PLAYER2.rect)
 
-        elif PLAYERS_COLIDIRAM:
+        elif PLAYERS_COLIDIRAM: # se os players colidirem, imprime o vencedor
             TELA.fill(CORES.fundo)
             funcoes.apresenta_tela_vencedor_pegador()
 
-        elif TIME_IS_UP:
+        elif TIME_IS_UP: # se o tempo acabar, imprime o vencedor 
             TELA.fill(CORES.fundo)
             funcoes.apresenta_tela_vencedor_tempo()
         

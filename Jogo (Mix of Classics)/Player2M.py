@@ -17,7 +17,7 @@ class Player2(pygame.sprite.Sprite):
         self.tela = tela
         self.config = config
         self.mapa = mapa
-        self.image = pygame.image.load('pacman-azul.png') #mudar foto do player ou fotos
+        self.image = pygame.image.load('pacman-azul.png') 
         self.image = pygame.transform.scale(self.image, (20, 20))
         self.rect = self.image.get_rect()
         self.screen_rect = tela.get_rect()
@@ -26,7 +26,7 @@ class Player2(pygame.sprite.Sprite):
         self.rect.bottom = self.screen_rect.bottom - 45
 
         # propriedades customizadas de movimento
-        self.velocidade2 = CONFIGURACOES.velocidade_player2 #VERIFICAR
+        self.velocidade2 = CONFIGURACOES.velocidade_player2 
         self.centro2 = [self.rect.centerx, self.rect.centery]
 
         #booleanos de movimento
@@ -55,7 +55,7 @@ class Player2(pygame.sprite.Sprite):
         self.rect.centerx = self.centro2[0]
         self.rect.centery = self.centro2[1]
 
-        colidiu = pygame.sprite.collide_mask(self, self.mapa)
+        colidiu = pygame.sprite.collide_mask(self, self.mapa) # colisão com as paredes
         if colidiu:
             self.centro2[0] = x_antigo
             self.centro2[1] = y_antigo

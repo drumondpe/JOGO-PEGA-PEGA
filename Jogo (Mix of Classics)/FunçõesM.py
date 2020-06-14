@@ -52,7 +52,7 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
-#def contador_tempo(): # apresenta e faz a contagem do tempo
+def contador_tempo(): # apresenta e faz a contagem do tempo
 
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
@@ -107,7 +107,7 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
             musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
             pygame.mixer.music.play()
 
-            hits = pygame.sprite.spritecollide(PLAYER1, PLAYER2, True)
+            hits = pygame.sprite.spritecollide(PLAYER1, PLAYER2, True) # lista de colisão dos players
 
             #contador_tempo()  # VERIFICAR SE FICA AQUI OU VAI PARA O "JOGO"
             if event.type == pygame.KEYDOWN:
@@ -167,7 +167,7 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 elif event.key == pygame.K_RIGHT:
                     PLAYER2.indo_para_direita2 = False
                 
-            if len(hits)>0:
+            if len(hits)>0: # verifica se houve colisão entre os players
             #if Player1.centro1 == Player2.centro2: # verifica se houve colisão
                 PLAYERS_COLIDIRAM = True
                 SEGUNDA_TELA = False
@@ -176,12 +176,12 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
 
 
 
-            if tempo == 0:
+            if tempo == 0: # se for igual 0, muda para tela TIME_IS_UP 
                 TIME_IS_UP = True
                 SEGUNDA_TELA = False
                 #podia tocar um som 
                 
-        elif PLAYERS_COLIDIRAM or TIME_IS_UP:
+        elif PLAYERS_COLIDIRAM or TIME_IS_UP: # se tiver alguma dessas tela, verifica a entrada 
 
             musica_vencedor = pygame.mixer.music.load('winner-sound')
             pygame.mixer.music.play()

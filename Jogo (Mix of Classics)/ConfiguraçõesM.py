@@ -8,11 +8,12 @@ import pygame
 vetor = pygame.math.Vector2
 
 class Config():
+    # classe define as configurações básicas
     def __init__(self):
 
         self.titulo_jogo = 'Pega-pega clássicos'
         self.pontuacao = 'Pontuação atual: XXX'
-    #   self.pontuacao_record = 'Pontuação record: XXXX'
+
         self.largura_tela = 610
         self.altura_tela = 670
         
@@ -28,7 +29,7 @@ class Config():
         self.cores = Cores()
         self.textos = Textos()
 
-class Cores(): # cores
+class Cores(): # define cores
     def __init__(self):
 
         self.titulo = (200, 205, 70)
@@ -44,7 +45,7 @@ class Cores(): # cores
         self.amarelo = (255, 255, 0)
 
 
-class Textos(): # tamanho e fonte dos textos
+class Textos(): # define tamanho e fonte dos textos
     def __init__(self):
 
         self.fonte = 'Futura ZBlk BT'
