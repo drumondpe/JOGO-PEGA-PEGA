@@ -23,8 +23,8 @@ class Config():
 
         self.FPS = 60
 
-        self.velocidade_player1 = 3 #pixels
-        self.velocidade_player2 = 2.5 #pixels
+        self.velocidade_player1 = 2.5 #pixels
+        self.velocidade_player2 = 3 #pixels
 
         self.cores = Cores()
         self.textos = Textos()

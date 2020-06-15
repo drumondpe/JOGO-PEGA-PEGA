@@ -55,7 +55,7 @@ def apresenta_tela_inicial():
 def contador_tempo(t0): # apresenta e faz a contagem do tempo
     t1 = pygame.time.get_ticks()
     dif_tempo = (t1 - t0) // 1000
-    return 30 - dif_tempo
+    return 90 - dif_tempo
 
 
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
@@ -110,8 +110,6 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
-            #musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
-            #pygame.mixer.music.play()
 
             hits = pygame.sprite.collide_mask(PLAYER1, PLAYER2) # lista de colisão dos players
 
