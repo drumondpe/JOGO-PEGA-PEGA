@@ -84,11 +84,11 @@ def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do
 def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do vencedor se for fugitivo
     fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
     parabenizacao2 = fonte_textos_fugitivo.render('Parabéns Player 1', True, CORES.amarelo)
-    imagem_mario_deepweb = pygame.image.load('pacman.png') # MUDAR IMAGEM
-    imagem_mario_deepweb = pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
+    imagem_pacman = pygame.image.load('pacman.png') # MUDAR IMAGEM
+    imagem_uganda_2= pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
 
     TELA.blit(parabenizacao2, (CONFIGURACOES.largura_tela//2 - parabenizacao2.get_width() + 140, 50))
-    TELA.blit(imagem_mario_deepweb, 100, 100)
+    TELA.blit(imagem_uganda, 100, 100)
 
 
 def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP):
