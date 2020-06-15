@@ -74,7 +74,7 @@ def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do
     imagem_pacman_azul = pygame.image.load('pacman-azul.png') # MUDAR IMAGEM
     imagem_pacman_azul = pygame.transform.scale(imagem_pacman_azul, (100, 100)) # MUDAR TAMANHO
 
-    TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() - 88, 50))
+    TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() + 140, 50))
     TELA.blit(imagem_uganda, (100, 100))
     TELA.blit(imagem_pacman_azul, (100, 100))
 
@@ -85,7 +85,7 @@ def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do v
     imagem_mario_deepweb = pygame.image.load('pacman.png') # MUDAR IMAGEM
     imagem_mario_deepweb = pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
 
-    TELA.blit(parabenizacao2, (CONFIGURACOES.largura_tela//2 - parabenizacao2.get_width() - 88, 50))
+    TELA.blit(parabenizacao2, (CONFIGURACOES.largura_tela//2 - parabenizacao2.get_width() + 140, 50))
     TELA.blit(imagem_mario_deepweb, 100, 100)
 
 
