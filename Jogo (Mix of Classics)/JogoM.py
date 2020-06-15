@@ -79,7 +79,7 @@ def rodar():
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
             funcoes.apresenta_segunda_tela()
-            #funcoes.apresenta_contagem_tempo()
+            #funcoes.contador_tempo()
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2
