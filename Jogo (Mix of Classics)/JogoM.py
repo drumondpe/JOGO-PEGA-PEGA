@@ -6,9 +6,9 @@ Autores: Keiya Nishio e Pedro Drumond
 
 
 ### Precisamos fazer
-# ajeitar a colisão entre os players 
 # fazer a função da contagem regressiva
-# ajeitar erros bestas
+# músicas
+# mais imagens
 
 
 

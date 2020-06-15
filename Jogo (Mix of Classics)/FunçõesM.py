@@ -94,7 +94,7 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver na tela inicial, verificar as seguintes
         if TELA_INICIAL:
-            musica_starwars = pygame.mixer.music.load('force-theme.mp3')
+            musica_starwars = pygame.mixer.music.load('música-duelo.mp3')
             pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
