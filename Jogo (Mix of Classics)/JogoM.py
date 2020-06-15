@@ -30,8 +30,7 @@ TEXTOS = Textos()
 CORES = CONFIGURACOES.cores
 
 # roda o jogod
-def rodar():
-
+def rodar(): 
     #### INICIALIZA O JOGO ####
     pygame.init()
     pygame.mixer.init()
@@ -57,17 +56,13 @@ def rodar():
     PLAYER2 = Player2(TELA, CONFIGURACOES, MAPA)    
     funcoes.init(CONFIGURACOES, TELA, PLAYER1, PLAYER2)
 
-    #musica_starwars = pygame.mixer.music.load('') 
-    #musica_starwars = pygame.mixer.music.load('force-theme.mp3')
-    #musica_slide64 = pygame.mixer.music.load('slider-remix.mp3') 
-    #sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
-
     # apresenta a tela de início
     funcoes.apresenta_tela_inicial()
 
     ## LOOP PRINCIPAL ##
-    
-    #pygame.mixer.music.play()
+    pygame.mixer.music.load('force-theme.mp3')
+    pygame.mixer.music.play()
+    t0 = pygame.time.get_ticks()
     while RODANDO:
         CLOCK.tick(CONFIGURACOES.FPS)
 
@@ -76,10 +71,11 @@ def rodar():
 
         # LOOP DO JOGO
         if SEGUNDA_TELA and not GAME_OVER and not TELA_INICIAL and not PLAYERS_COLIDIRAM and not TIME_IS_UP:
+            
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
             funcoes.apresenta_segunda_tela()
-            #funcoes.contador_tempo()
+            print(funcoes.contador_tempo(t0))
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2

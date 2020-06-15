@@ -52,8 +52,10 @@ def apresenta_tela_inicial():
     TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 490))
     TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 520))
 
-#def contador_tempo(): # apresenta e faz a contagem do tempo
-
+def contador_tempo(t0): # apresenta e faz a contagem do tempo
+    t1 = pygame.time.get_ticks()
+    dif_tempo = (t1 - t0) // 1000
+    return 30 - dif_tempo
 
 
 
@@ -107,6 +109,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
+                    pygame.mixer.music.load('slider-remix.mp3') 
+                    pygame.mixer.music.play()
                     TELA_INICIAL = False
                     SEGUNDA_TELA = True
         
@@ -175,12 +179,12 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 elif event.key == pygame.K_RIGHT:
                     PLAYER2.indo_para_direita2 = False
                 
-            if hits: # verifica se houve colisão entre os players
-            #if Player1.centro1 == Player2.centro2: # verifica se houve colisão
+            if hits:
+                pygame.mixer.music.load('gta-wasted.mp3')
+                pygame.mixer.music.play()
+
                 PLAYERS_COLIDIRAM = True
                 SEGUNDA_TELA = False
-                #sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
-                #pygame.mixer.music.play()
 
 
 
@@ -191,8 +195,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 
         elif PLAYERS_COLIDIRAM or TIME_IS_UP: # se tiver alguma dessas tela, verifica a entrada 
 
-            #musica_vencedor = pygame.mixer.music.load('winner-sound')
-            #pygame.mixer.music.play()
+            pygame.mixer.music.load('winner-sound')
+            pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
 
