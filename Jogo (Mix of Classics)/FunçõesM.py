@@ -15,7 +15,7 @@ TEXTOS = None
 TELA = None
 PLAYER1 = None
 PLAYER2 = None
-
+t0 = pygame.time.get_ticks()
 
 def init(config, tela, player1, player2):
     #inicializa as variáveis das funções
