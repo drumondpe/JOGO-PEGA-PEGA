@@ -100,8 +100,6 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver na tela inicial, verificar as seguintes
         if TELA_INICIAL:
-            musica_starwars = pygame.mixer.music.load('música-duelo.mp3')
-            pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
@@ -112,8 +110,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
-            musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
-            pygame.mixer.music.play()
+            #musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
+            #pygame.mixer.music.play()
 
             hits = pygame.sprite.collide_mask(PLAYER1, PLAYER2) # lista de colisão dos players
 
@@ -176,8 +174,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                     PLAYER2.indo_para_direita2 = False
                 
             if hits:
-                #pygame.mixer.music.load('gta-wasted.mp3')
-                #pygame.mixer.music.play()
+                pygame.mixer.music.load('winner-sound.mp3')
+                pygame.mixer.music.play()
 
                 PLAYERS_COLIDIRAM = True
                 SEGUNDA_TELA = False
@@ -190,9 +188,6 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 #podia tocar um som 
                 
         elif PLAYERS_COLIDIRAM or TIME_IS_UP: # se tiver alguma dessas tela, verifica a entrada 
-
-            pygame.mixer.music.load('winner-sound.mp3')
-            pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
 
