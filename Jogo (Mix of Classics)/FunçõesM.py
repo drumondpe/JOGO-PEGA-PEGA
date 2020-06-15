@@ -187,17 +187,15 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
             #pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
-                if event.type == pygame.KEYUP:
-
-                    if event.key == pygame.K_SPACE:
-                        PLAYERS_COLIDIRAM = False
-                        TIME_IS_UP = False
-                        TELA_INICIAL = True
+                if event.key == pygame.K_SPACE:
+                    PLAYERS_COLIDIRAM = False
+                    TIME_IS_UP = False
+                    TELA_INICIAL = True
                     
-                    elif event.key == pygame.K_BACKSPACE:
-                        PLAYERS_COLIDIRAM = False
-                        TIME_IS_UP = False
-                        RODANDO = False
+                elif event.key == pygame.K_BACKSPACE:
+                    PLAYERS_COLIDIRAM = False
+                    TIME_IS_UP = False
+                    RODANDO = False
 
                    
 
