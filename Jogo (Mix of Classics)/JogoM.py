@@ -6,8 +6,8 @@ Autores: Keiya Nishio e Pedro Drumond
 
 
 ### Precisamos fazer
-# fazer a função da contagem regressiva
-# músicas (quando interagimos a música reinicia)
+# como fazer a função da contagem regressiva
+# como colocar as músicas (quando interagimos a música reinicia)
 # mais imagens
 
 
@@ -29,7 +29,7 @@ CONFIGURACOES = Config()
 TEXTOS = Textos()
 CORES = CONFIGURACOES.cores
 
-# roda o jogo
+# roda o jogod
 def rodar():
 
     #### INICIALIZA O JOGO ####
