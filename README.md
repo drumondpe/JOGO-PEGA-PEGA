@@ -1,4 +1,4 @@
-# Mario-Fake
+# JOGO PEGA-PEGA
 Projeto de DesSoft feito por Keiya e Pedro
 
 Olá!
