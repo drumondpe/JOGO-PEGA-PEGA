@@ -18,7 +18,7 @@ class Player2(pygame.sprite.Sprite):
         self.config = config
         self.mapa = mapa
         self.image = pygame.image.load('pacman-azul.png') 
-        self.image = pygame.transform.scale(self.image, (20, 20))
+        self.image = pygame.transform.scale(self.image, (23, 23))
         self.rect = self.image.get_rect()
         self.screen_rect = tela.get_rect()
         self.rect.centerx = self.screen_rect.centerx + 250

@@ -20,7 +20,7 @@ class Player1(pygame.sprite.Sprite):
         self.config = config
         self.mapa = mapa
         self.image = pygame.image.load('pacman.png') 
-        self.image = pygame.transform.scale(self.image, (20, 20))
+        self.image = pygame.transform.scale(self.image, (23, 23))
         self.image.set_colorkey((0,0,0))
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
