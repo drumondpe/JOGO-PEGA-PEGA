@@ -58,13 +58,10 @@ def contador_tempo(t0): # apresenta e faz a contagem do tempo
     return 30 - dif_tempo
 
 
-
-
-
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
     player_pegador = fonte_textos.render('PLAYER PEGADOR: AZUL', True, CORES.aqua)
-    tempo_restante = fonte_textos.render('TEMPO: ', True, CORES.vermelho)  ### MUDAR AQUI
+    tempo_restante = fonte_textos.render('TEMPO: {0}'.format(contador_tempo(t0)), True, CORES.vermelho)  ### MUDAR AQUI
     TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() + 200, 7))
     TELA.blit(tempo_restante, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 45, 7))
 
@@ -79,7 +76,6 @@ def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do
     TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() + 140, 50))
     TELA.blit(imagem_uganda, (100, 100))
     TELA.blit(imagem_pacman_azul, (100, 100))
-
 
 def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do vencedor se for fugitivo
     fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
@@ -104,8 +100,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver na tela inicial, verificar as seguintes
         if TELA_INICIAL:
-            #musica_starwars = pygame.mixer.music.load('música-duelo.mp3')
-            #pygame.mixer.music.play()
+            musica_starwars = pygame.mixer.music.load('música-duelo.mp3')
+            pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
@@ -116,8 +112,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
-            #musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
-            #pygame.mixer.music.play()
+            musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
+            pygame.mixer.music.play()
 
             hits = pygame.sprite.collide_mask(PLAYER1, PLAYER2) # lista de colisão dos players
 
@@ -180,8 +176,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                     PLAYER2.indo_para_direita2 = False
                 
             if hits:
-                pygame.mixer.music.load('gta-wasted.mp3')
-                pygame.mixer.music.play()
+                #pygame.mixer.music.load('gta-wasted.mp3')
+                #pygame.mixer.music.play()
 
                 PLAYERS_COLIDIRAM = True
                 SEGUNDA_TELA = False
