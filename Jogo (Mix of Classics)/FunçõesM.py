@@ -63,17 +63,20 @@ def apresenta_segunda_tela(): # apresenta os textos da segunda tela
 
 def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do vencedor se for pegador
     fonte_textos_pegador = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
-    parabenizacao1 = fonte_textos_pegador.render('Parabéns Player 2', True, CORES.azul_marinho)
-    imagem_sonico = pygame.image.load('pacman-azul.png') # MUDAR IMAGEM
-    imagem_sonico = pygame.transform.scale(imagem_sonico, (100, 100)) # MUDAR TAMANHO
+    parabenizacao1 = fonte_textos_pegador.render('Parabéns Player 2', True, CORES.aqua)
+    imagem_sonico = pygame.image.load('sonico.png')
+    imagem_sonico = pygame.transform.scale(imagem_sonico, (100, 100))
+    imagem_pacman_azul = pygame.image.load('pacman-azul.png') 
+    imagem_pacman_azul = pygame.transform.scale(imagem_pacman_azul, (100, 100)) 
 
     TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() + 140, 50))
     TELA.blit(imagem_sonico, (100, 100))
+    TELA.blit(imagem_pacman_azul, (100, 100))
 
 
 def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do vencedor se for fugitivo
     fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
-    parabenizacao2 = fonte_textos_pegador.render('Parabéns Player 1', True, CORES.amarelo)
+    parabenizacao2 = fonte_textos_fugitivos.render('Parabéns Player 1', True, CORES.amarelo)
     imagem_mario_deepweb = pygame.image.load('pacman.png') # MUDAR IMAGEM
     imagem_mario_deepweb = pygame.transform.scale(imagem_sonico, (100, 100)) # MUDAR TAMANHO
 
