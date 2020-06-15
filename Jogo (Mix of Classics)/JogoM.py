@@ -62,20 +62,19 @@ def rodar():
     ## LOOP PRINCIPAL ##
     pygame.mixer.music.load('force-theme.mp3')
     pygame.mixer.music.play()
-    t0 = pygame.time.get_ticks()
+    tempo_restante = 90
     while RODANDO:
         CLOCK.tick(CONFIGURACOES.FPS)
 
         # atualiza booleanos do jogo
-        TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP)
+        TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP = funcoes.checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP, tempo_restante)
 
         # LOOP DO JOGO
         if SEGUNDA_TELA and not GAME_OVER and not TELA_INICIAL and not PLAYERS_COLIDIRAM and not TIME_IS_UP:
             
             TELA.fill(CORES.fundo)
             MAPA.tela_jogando(TELA)
-            funcoes.apresenta_segunda_tela()
-
+            tempo_restante = funcoes.apresenta_segunda_tela()
 
             PLAYER1.update() # atualiza posição do player1
             PLAYER2.update() # atualiza posição do player2

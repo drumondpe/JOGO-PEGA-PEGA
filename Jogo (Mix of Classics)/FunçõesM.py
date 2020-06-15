@@ -15,7 +15,6 @@ TEXTOS = None
 TELA = None
 PLAYER1 = None
 PLAYER2 = None
-t0 = pygame.time.get_ticks()
 
 def init(config, tela, player1, player2):
     #inicializa as variáveis das funções
@@ -55,15 +54,17 @@ def apresenta_tela_inicial():
 def contador_tempo(t0): # apresenta e faz a contagem do tempo
     t1 = pygame.time.get_ticks()
     dif_tempo = (t1 - t0) // 1000
-    return 90 - dif_tempo
+    return 10 - dif_tempo
 
 
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
     player_pegador = fonte_textos.render('PLAYER PEGADOR: AZUL', True, CORES.aqua)
-    tempo_restante = fonte_textos.render('TEMPO: {0}'.format(contador_tempo(t0)), True, CORES.vermelho)  ### MUDAR AQUI
+    tempo = contador_tempo(t0)
+    tempo_restante = fonte_textos.render('TEMPO: {0}'.format(tempo), True, CORES.vermelho)  ### MUDAR AQUI
     TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() + 200, 7))
     TELA.blit(tempo_restante, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 45, 7))
+    return tempo
 
 def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do vencedor se for pegador
     fonte_textos_pegador = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
@@ -79,15 +80,18 @@ def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do
 
 def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do vencedor se for fugitivo
     fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
+    imagem_uganda = pygame.image.load('uganda_knuckles_azul.jpg')
+    imagem_uganda = pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
     parabenizacao2 = fonte_textos_fugitivo.render('Parabéns Player 1', True, CORES.amarelo)
     imagem_pacman = pygame.image.load('pacman.png') # MUDAR IMAGEM
-    imagem_uganda_2= pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
+    #imagem_uganda_2= pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
 
     TELA.blit(parabenizacao2, (CONFIGURACOES.largura_tela//2 - parabenizacao2.get_width() + 140, 50))
-    TELA.blit(imagem_uganda, 100, 100)
+    TELA.blit(imagem_uganda, (100, 100))
 
 
-def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP):
+def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP, tempo_restante):
+    global t0
     #avalia entradas e retorna booleanos de estado de jogo
 
     # verifica inputs do usuário
@@ -107,13 +111,13 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                     pygame.mixer.music.play()
                     TELA_INICIAL = False
                     SEGUNDA_TELA = True
+                    t0 = pygame.time.get_ticks()
         
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
-
             hits = pygame.sprite.collide_mask(PLAYER1, PLAYER2) # lista de colisão dos players
+            #contador_tempo()
 
-            #contador_tempo()  # VERIFICAR SE FICA AQUI OU VAI PARA O "JOGO"
             if event.type == pygame.KEYDOWN:
 
                 # configurando Player 1
@@ -179,11 +183,9 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 SEGUNDA_TELA = False
 
 
-
-            #if tempo == 0: # se for igual 0, muda para tela TIME_IS_UP 
-            #    TIME_IS_UP = True
-            #    SEGUNDA_TELA = False
-                #podia tocar um som 
+            if tempo_restante <= 0: # se for igual 0, muda para tela TIME_IS_UP 
+                TIME_IS_UP = True
+                SEGUNDA_TELA = False
                 
         elif PLAYERS_COLIDIRAM or TIME_IS_UP: # se tiver alguma dessas tela, verifica a entrada 
 
