@@ -67,7 +67,7 @@ def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do
     imagem_sonico = pygame.image.load('pacman-azul.png') # MUDAR IMAGEM
     imagem_sonico = pygame.transform.scale(imagem_sonico, (100, 100)) # MUDAR TAMANHO
 
-    TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() - 88, 50))
+    TELA.blit(parabenizacao1, (CONFIGURACOES.largura_tela//2 - parabenizacao1.get_width() + 140, 50))
     TELA.blit(imagem_sonico, (100, 100))
 
 
@@ -187,16 +187,19 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
             #pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYUP:
 
-                if event.key == pygame.K_SPACE:
-                    PLAYERS_COLIDIRAM = False
-                    TIME_IS_UP = False
-                    SEGUNDA_TELA = True
+                    if event.key == pygame.K_SPACE:
+                        PLAYERS_COLIDIRAM = False
+                        TIME_IS_UP = False
+                        TELA_INICIAL = True
+                    
+                    elif event.key == pygame.K_BACKSPACE:
+                        PLAYERS_COLIDIRAM = False
+                        TIME_IS_UP = False
+                        RODANDO = False
 
-                elif event.key == pygame.K_BACKSPACE:
-                    PLAYERS_COLIDIRAM = False
-                    TIME_IS_UP = False
-                    RODANDO = False
+                   
 
 
     return TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDIRAM, TIME_IS_UP
