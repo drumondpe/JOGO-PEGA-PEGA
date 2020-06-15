@@ -35,15 +35,17 @@ def apresenta_tela_inicial():
     #config de fontes
     fonte_texto_inicial = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_grande) 
     fonte_texto_nomes = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
+    fonte_texo_super = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_super)
 
     #textos que aparecem na tela de início
-    titulo_do_jogo = fonte_texto_inicial.render(CONFIGURACOES.titulo_jogo, True, CORES.titulo)
+    titulo_do_jogo = fonte_texo_super.render(CONFIGURACOES.titulo_jogo, True, CORES.titulo)
     botao_de_inicio1 = fonte_texto_inicial.render('Pressione Barra de Espaço', True, (255, 40, 255))
-    botao_de_inicio2 = fonte_texto_inicial.render('para começar', True, (255, 40, 255))
-    nome_dos_criadores1 = fonte_texto_nomes.render('Keiya Nishio', True, CORES.nomes)
-    nome_dos_criadores2 = fonte_texto_nomes.render('Pedro Drumond', True, CORES.nomes)
+    botao_de_inicio2 = fonte_texto_inicial.render('para começar!', True, (255, 40, 255))
+    nome_dos_criadores1 = fonte_texto_nomes.render('Keiya Nishio', True, CORES.vermelho)
+    nome_dos_criadores2 = fonte_texto_nomes.render('Pedro Drumond', True, CORES.vermelho)
     botoes_de_movimento1 = fonte_texto_nomes.render('AMARELO: W/A/S/D', True, CORES.amarelo)
     botoes_de_movimento2 = fonte_texto_nomes.render('AZUL: SETINHAS', True, CORES.azul_marinho)
+    insper = fonte_texto_nomes.render('ENG - INSPER 2020.1', True, CORES.vermelho)
 
 
     #posicionamento na tela de início
@@ -51,10 +53,11 @@ def apresenta_tela_inicial():
     TELA.blit(titulo_do_jogo, (CONFIGURACOES.largura_tela//2 - titulo_do_jogo.get_width() // 2, 90))
     TELA.blit(botao_de_inicio1, (CONFIGURACOES.largura_tela//2 - botao_de_inicio1.get_width() // 2, 270))
     TELA.blit(botao_de_inicio2, (CONFIGURACOES.largura_tela//2 - botao_de_inicio2.get_width() // 2, 310))
-    TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 520))
-    TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 550))
-    TELA.blit(botoes_de_movimento1, (CONFIGURACOES.largura_tela//2 - botoes_de_movimento1.get_width()//2, 50))
-    TELA.blit(botoes_de_movimento2, (CONFIGURACOES.largura_tela//2 - botoes_de_movimento2.get_width()//2, 250))
+    TELA.blit(nome_dos_criadores1, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores1.get_width() // 2, 560))
+    TELA.blit(nome_dos_criadores2, (CONFIGURACOES.largura_tela//2 - nome_dos_criadores2.get_width() // 2, 590))
+    TELA.blit(botoes_de_movimento1, (CONFIGURACOES.largura_tela//2 - botoes_de_movimento1.get_width()//2, 450))
+    TELA.blit(botoes_de_movimento2, (CONFIGURACOES.largura_tela//2 - botoes_de_movimento2.get_width()//2, 490))
+    TELA.blit(insper, (CONFIGURACOES.largura_tela//2 - insper.get_width()//2, 620))
 
 def contador_tempo(t0): # apresenta e faz a contagem do tempo
     t1 = pygame.time.get_ticks()
@@ -73,7 +76,8 @@ def apresenta_segunda_tela(): # apresenta os textos da segunda tela
 
 def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do vencedor se for pegador
     fonte_textos_pegador = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
-    parabenizacao1 = fonte_textos_pegador.render('Parabéns Player 2', True, CORES.aqua)
+    parabenizacao1 = fonte_textos_pegador.render('PARABéNS PLAYER 2', True, CORES.aqua)
+
     imagem_uganda = pygame.image.load('uganda_knuckles_azul.jpg')
     imagem_uganda = pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
     imagem_pacman_azul = pygame.image.load('pacman-azul.png') # MUDAR IMAGEM
@@ -87,7 +91,7 @@ def apresenta_tela_vencedor_tempo(): # apresenta os textos e imagem na tela do v
     fonte_textos_fugitivo = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
     imagem_uganda = pygame.image.load('uganda_knuckles_azul.jpg')
     imagem_uganda = pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
-    parabenizacao2 = fonte_textos_fugitivo.render('Parabéns Player 1', True, CORES.amarelo)
+    parabenizacao2 = fonte_textos_fugitivo.render('PARABéNS PLAYER 1', True, CORES.amarelo)
     imagem_pacman = pygame.image.load('pacman.png') # MUDAR IMAGEM
     #imagem_uganda_2= pygame.transform.scale(imagem_uganda, (100, 100)) # MUDAR TAMANHO
 
@@ -121,7 +125,6 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
             hits = pygame.sprite.collide_mask(PLAYER1, PLAYER2) # lista de colisão dos players
-            #contador_tempo()
 
             if event.type == pygame.KEYDOWN:
 
@@ -189,6 +192,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
 
 
             if tempo_restante <= 0: # se for igual 0, muda para tela TIME_IS_UP 
+                pygame.mixer.music.load('winner-sound.mp3')
+                pygame.mixer.music.play()
                 TIME_IS_UP = True
                 SEGUNDA_TELA = False
                 

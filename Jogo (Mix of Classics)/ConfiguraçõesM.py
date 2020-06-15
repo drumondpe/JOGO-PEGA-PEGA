@@ -49,8 +49,9 @@ class Textos(): # define tamanho e fonte dos textos
     def __init__(self):
 
         self.fonte = 'Futura ZBlk BT'
-        self.tamanho_grande = 60
+        self.tamanho_grande = 56
         self.tamanho_pequeno = 40
         self.tamanho_menor = 25
         self.tamanho_segunda_tela = 10
+        self.tamanho_super = 70
 
