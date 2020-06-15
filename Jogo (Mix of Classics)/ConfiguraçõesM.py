@@ -21,7 +21,7 @@ class Config():
         self.largura_tela_fundo = self.largura_tela - self.altura_topo_tela
         self.altura_tela_fundo = self.altura_tela - self.altura_topo_tela
 
-        self.FPS = 30
+        self.FPS = 60
 
         self.velocidade_player1 = 4.5 #pixels
         self.velocidade_player2 = 5.5 #pixels
