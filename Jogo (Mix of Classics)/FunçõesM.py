@@ -57,9 +57,9 @@ def apresenta_tela_inicial():
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
     fonte_textos = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_menor)
     player_pegador = fonte_textos.render('PLAYER PEGADOR: AZUL', True, CORES.aqua)
-    tempo_restante = fonte_textos.render('TEMPO RESTANTE PARA PEGAR: MUDAR AQUI', True, CORES.vermelho)  ### MUDAR AQUI
-    TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 88, 7))
-    TELA.blit(tempo_restante, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 400, 7))
+    tempo_restante = fonte_textos.render('TEMPO: ', True, CORES.vermelho)  ### MUDAR AQUI
+    TELA.blit(player_pegador, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() + 200, 7))
+    TELA.blit(tempo_restante, (CONFIGURACOES.largura_tela_fundo//2 - player_pegador.get_width() - 45, 7))
 
 def apresenta_tela_vencedor_pegador(): # apresenta os textos e imagem na tela do vencedor se for pegador
     fonte_textos_pegador = pygame.font.SysFont(TEXTOS.fonte, TEXTOS.tamanho_pequeno)
