@@ -94,8 +94,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver na tela inicial, verificar as seguintes
         if TELA_INICIAL:
-            musica_starwars = pygame.mixer.music.load('música-duelo.mp3')
-            pygame.mixer.music.play()
+            #musica_starwars = pygame.mixer.music.load('música-duelo.mp3')
+            #pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE: # muda para a segunda tela de jogo
@@ -104,8 +104,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
         
         # se estiver em jogo, verificar as seguintes
         elif SEGUNDA_TELA:
-            musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
-            pygame.mixer.music.play()
+            #musica_slide64 = pygame.mixer.music.load('slider-remix.mp3')
+            #pygame.mixer.music.play()
 
             hits = pygame.sprite.collide_mask(PLAYER1, PLAYER2) # lista de colisão dos players
 
@@ -171,8 +171,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
             #if Player1.centro1 == Player2.centro2: # verifica se houve colisão
                 PLAYERS_COLIDIRAM = True
                 SEGUNDA_TELA = False
-                sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
-                pygame.mixer.music.play()
+                #sound_wasted = pygame.mixer.music.load('gta-wasted.mp3') 
+                #pygame.mixer.music.play()
 
 
 

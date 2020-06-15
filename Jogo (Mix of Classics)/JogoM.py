@@ -7,7 +7,7 @@ Autores: Keiya Nishio e Pedro Drumond
 
 ### Precisamos fazer
 # fazer a função da contagem regressiva
-# músicas
+# músicas (quando interagimos a música reinicia)
 # mais imagens
 
 
