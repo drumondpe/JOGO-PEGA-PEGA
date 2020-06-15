@@ -183,8 +183,8 @@ def checa_eventos(TELA_INICIAL, GAME_OVER, RODANDO, SEGUNDA_TELA, PLAYERS_COLIDI
                 
         elif PLAYERS_COLIDIRAM or TIME_IS_UP: # se tiver alguma dessas tela, verifica a entrada 
 
-            musica_vencedor = pygame.mixer.music.load('winner-sound')
-            pygame.mixer.music.play()
+            #musica_vencedor = pygame.mixer.music.load('winner-sound')
+            #pygame.mixer.music.play()
 
             if event.type == pygame.KEYDOWN:
 
