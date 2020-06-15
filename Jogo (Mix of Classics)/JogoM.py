@@ -42,7 +42,7 @@ def rodar():
 
 
 
-    # booleanos do programa
+    # booleanos do programaa
     RODANDO = True
     TELA_INICIAL = True
     SEGUNDA_TELA = False
