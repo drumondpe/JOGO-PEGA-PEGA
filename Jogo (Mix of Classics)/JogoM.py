@@ -62,7 +62,7 @@ def rodar():
     ## LOOP PRINCIPAL ##
     pygame.mixer.music.load('force-theme.mp3')
     pygame.mixer.music.play()
-    tempo_restante = 90
+    tempo_restante = 60
     while RODANDO:
         CLOCK.tick(CONFIGURACOES.FPS)
 

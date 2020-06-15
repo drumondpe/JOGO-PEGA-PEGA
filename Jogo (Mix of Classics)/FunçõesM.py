@@ -54,7 +54,7 @@ def apresenta_tela_inicial():
 def contador_tempo(t0): # apresenta e faz a contagem do tempo
     t1 = pygame.time.get_ticks()
     dif_tempo = (t1 - t0) // 1000
-    return 5 - dif_tempo
+    return 60 - dif_tempo
 
 
 def apresenta_segunda_tela(): # apresenta os textos da segunda tela
