@@ -8,3 +8,6 @@ Com isso nós decidimos adaptar o jogo usando como base o código antigo que pod
 
 https://github.com/drumondpe/Projeto-DesSoft
 
+Abaixo segue o link para um curto vídeo do jogo:
+
+https://www.youtube.com/watch?v=kdwhzrZy6qY
